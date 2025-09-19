@@ -8,7 +8,7 @@
     "dev:css": "tailwindcss -i ./input.css -o ./dist/style.css --watch",
     "build:css": "tailwindcss -i ./input.css -o ./dist/style.css --minify",
     "minify:main": "cleancss -o ./dist/main.min.css ./main.css",
-    "build": "npm run build:css && npm run minify:main"
+    "build": "npm run build:css && npm run minify:main && npm run minify:js"
   },
   "keywords": [],
   "author": "",
