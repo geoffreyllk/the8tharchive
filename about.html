@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <title>About | The8thArchive</title>
+    <meta name="description" content="Why we create limited edition automotive art. The story behind our permanent archive.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://the8tharchive.com.my/about">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://the8tharchive.com.my/about">
+    <meta property="og:title" content="About Our Limited Edition Automotive Art">
+    <meta property="og:description" content="Discover why each poster is a permanent part of automotive history">
+    <meta property="og:image" content="https://the8tharchive.com.my/images/og-thubmnail.webp">
+    <meta property="og:image:alt" content="The story behind The8thArchive">
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon/dark/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" href="images/favicon/dark/favicon-32x32.png">
+
+    <link rel="icon" href="images/favicon/light/favicon.ico" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/png" href="images/favicon/light/favicon-32x32.png" media="(prefers-color-scheme: dark)">
+
+    <link rel="apple-touch-icon" href="images/favicon/dark/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <!-- Preloads -->
+    <link rel="preload" href="fonts/Eurostile-Extended.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/FiraCode-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/images/grain.avif" as="image">
+    <link rel="preload" href="/dist/style.css" as="style">
+    <link rel="preload" href="/dist/main.min.css" as="style">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/dist/main.min.css">
+    <link rel="stylesheet" href="/dist/style.css">
+    <noscript>
+        <link rel="stylesheet" href="/dist/main.min.css">
+        <link rel="stylesheet" href="/dist/style.css">
+    </noscript>
+    
+    <!-- Script -->
+    <script src="dist/script.min.js" defer></script>
+
+    <style>
+        .sub-title:hover {
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            cursor: pointer;
+        }
+
+        .fade-scroll-wrapper {
+            position: relative;
+        }
+
+        .fade-scroll {
+            position: relative;
+        }
+
+        .fade-scroll-wrapper::before,
+        .fade-scroll-wrapper::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 10%;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .fade-scroll-wrapper::before {
+            top: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0));
+            z-index: 1;
+        }
+
+        h1 {
+            position: relative;
+            z-index: 10;
+        }
+
+        .fade-scroll-wrapper::after {
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0));
+        }
+
+        .fade-section {
+            transition: opacity 0.5s ease;
+        }
+
+        .fade-low {
+            opacity: 0.4;
+        }
+
+        .fade-mid {
+            opacity: 0.7;
+        }
+
+        .fade-full {
+            opacity: 1;
+        }
+
+        .fade-scroll-wrapper.disable-bottom-fade::after {
+            display: none;
+        }
+
+        @keyframes slideInNav {
+            0% {
+                clip-path: inset(0 0 100% 0);
+                opacity: 0;
+            }
+            100% {
+                clip-path: inset(0 0 0 0);
+                opacity: 1;
+            }
+        }
+
+        .animate-slideInNav {
+            animation: slideInNav 3s ease forwards;
+        }
+
+        .nav-letter:hover {
+            color: white;
+        }
+
+        .nav-letter.active {
+            color: white;
+            font-weight: bold;
+        }
+
+        .fill-line {
+            transition: transform 0.2s ease-out;
+            will-change: transform;
+        }
+
+        /* accesibility */
+        .nav-letter:focus-visible {
+            background-color: white;
+            color: black;
+            border-radius: 2px;
+            outline: none;
+        }
+
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="sr-only focus:not-sr-only absolute flex justify-center bg-black text-white p-2 z-50">[ Skip to content ]</a>
+    
+    <!-- Menu Button -->
+    <button id="menuBtn" class="fixed top-0 left-0 h-full w-9 bg-black bg-opacity-90 border-r border-gray-700 hover:border-white transition-all duration-500 ease-in-out z-50 group mono animate-fadeInRight opacity-0" style="animation-delay: 0.4s; animation-fill-mode: both;" 
+        aria-controls="sidebar" aria-expanded="false" aria-label="Open main menu" type="button">
+        <span style="text-shadow: 0 0 1px black, 0 0 1px black;"class="absolute left-0 top-1/2 transform -rotate-90 uppercase tracking-widest text-sm text-white hover:text-gray-300 transition-colors">
+            Menu
+        </span>
+    </button>
+    <!-- Sidebar Navbar --> 
+    <aside id="sidebar" class="fixed top-0 left-0 h-full w-0 bg-black bg-opacity-90 border-gray-700 md:hover:border-white overflow-hidden transition-all duration-500 ease-in-out z-50" role="navigation" aria-hidden="true" aria-label="Site menu">
+        <nav class="flex flex-col justify-center items-center text-center h-full px-6 space-y-6" aria-label="Main navigation">
+            <h2 class="sr-only">Main Site Navigation</h2>
+            <a href="index.html" class="nav-item block text-lg uppercase text-gray-400 hover:text-white transition-all opacity-0 -translate-x-5 mono">Archive</a>
+            <a href="about.html" class="nav-item block text-lg uppercase text-gray-400 hover:text-white transition-all opacity-0 -translate-x-5 mono" aria-current="page">About</a>
+            <a href="collections.html" class="nav-item block text-lg uppercase text-gray-400 hover:text-white transition-all opacity-0 -translate-x-5 mono">Collections</a>
+            <a href="cart.html" class="nav-item block text-lg uppercase text-gray-400 hover:text-white transition-all opacity-0 -translate-x-5 mono">Cart</a>
+        </nav>
+        <button id="closeBtn" class="absolute top-5 right-5 sm:top-6 sm:right-6 text-xl md:hidden opacity-0 pointer-events-none transition-opacity duration-300 text-gray-400 hover:text-white z-50 mono" aria-label="Close menu">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none">
+                <path d="M2 2L22 22M22 2L2 22" stroke="currentColor" stroke-width="1.2" stroke-linecap="butt"/>
+            </svg>
+        </button>
+    </aside>
+
+    <!-- Aside Section Nav -->
+    <aside id="section-nav" class="hidden sm:flex fixed right-0 top-0 z-40 h-full flex flex-col justify-center items-center w-9 text-xs md:text-sm uppercase tracking-widest text-gray-400 mono space-y-2 pointer-events-auto" role="navigation" aria-label="Page sections">
+        <button data-target="section-authenticity" class="nav-letter animate-slideInNav" style="animation-delay: 0.2s; animation-fill-mode: both;" aria-label="Go to Authenticity Section">A</button>
+        <div class="nav-line transition-all duration-300 h-6 w-px bg-gray-700 overflow-hidden relative animate-slideInNav" data-line="a-r" aria-hidden="true">
+            <div class="fill-line absolute left-0 top-0 h-full w-full bg-white" style="transform: scaleY(0); transform-origin: top;"></div>
+        </div>
+        <button data-target="section-respect" class="nav-letter animate-slideInNav" style="animation-delay: 0.4s; animation-fill-mode: both;" aria-label="Go to Respect Section">R</button>
+        <div class="nav-line transition-all duration-300 h-6 w-px bg-gray-700 overflow-hidden relative animate-slideInNav" data-line="r-c" aria-hidden="true">
+            <div class="fill-line absolute left-0 top-0 h-full w-full bg-white" style="transform: scaleY(0); transform-origin: top;"></div>
+        </div>
+        <button data-target="section-craftsmanship" class="nav-letter animate-slideInNav" style="animation-delay: 0.6s; animation-fill-mode: both;" aria-label="Go to craftsmanship Section">C</button>
+        <div class="nav-line transition-all duration-300 h-6 w-px bg-gray-700 overflow-hidden relative animate-slideInNav" data-line="c-h" aria-hidden="true">
+            <div class="fill-line absolute left-0 top-0 h-full w-full bg-white" style="transform: scaleY(0); transform-origin: top;"></div>
+        </div>
+        <button data-target="section-heritage" class="nav-letter animate-slideInNav" style="animation-delay: 0.8s; animation-fill-mode: both;" aria-label="Go to Heritage Section">H</button>
+        <div class="nav-line transition-all duration-300 h-6 w-px bg-gray-700 overflow-hidden relative animate-slideInNav" data-line="h-i" aria-hidden="true">
+            <div class="fill-line absolute left-0 top-0 h-full w-full bg-white" style="transform: scaleY(0); transform-origin: top;"></div>
+        </div>
+        <button data-target="section-inspiration" class="nav-letter animate-slideInNav" style="animation-delay: 1s; animation-fill-mode: both;" aria-label="Go to inspiration Section">I</button>
+        <div class="nav-line transition-all duration-300 h-6 w-px bg-gray-700 overflow-hidden relative animate-slideInNav" data-line="i-v" aria-hidden="true">
+            <div class="fill-line absolute left-0 top-0 h-full w-full bg-white" style="transform: scaleY(0); transform-origin: top;"></div>
+        </div>
+        <button data-target="section-vision" class="nav-letter animate-slideInNav" style="animation-delay: 1.2s; animation-fill-mode: both;" aria-label="Go to Vision Section">V</button>
+        <div class="nav-line transition-all duration-300 h-6 w-px bg-gray-700 overflow-hidden relative animate-slideInNav" data-line="v-e" aria-hidden="true">
+            <div class="fill-line absolute left-0 top-0 h-full w-full bg-white" style="transform: scaleY(0); transform-origin: top;"></div>
+        </div>
+        <button data-target="section-evolution" class="nav-letter animate-slideInNav" style="animation-delay: 1.4s; animation-fill-mode: both;" aria-label="Go to Evolution Section">E</button>
+    </aside>
+
+
+    <div class="relative isolate fade-scroll-wrapper max-w-4xl mx-auto pl-12 pr-3 sm:pr-12">
+        <div class="fade-scroll scroll-smooth">
+            <main id="main-content" role="main" class="space-y-12">
+                <header  class="pb-2 border-b border-gray-700">
+                    <h1 class="text-3xl md:text-4xl pt-12 text-center text-white font-bold uppercase title tracking-tight z-10">About</h1>
+                </header>
+                
+                <p class="text-xs md:text-sm text-gray-200 text-center tracking-tight leading-relaxed font-mono px-2 max-w-2xl mx-auto">
+                    The8thArchive was not born in a boardroom. It started in a bedroom. 
+                    Two teenagers, bound by an obsession with cars, design, and storytelling, chose to stop dreaming and start building. 
+                    We did not come from money or experience. We came from screenshots, midnight drives, forum deep dives, and that jolt of adrenaline when a clean build rolls past at a mamak table.
+                    To us, this is more than a collection — it's a living archive of our own passion and obsession, built one story at a time.
+                </p>
+
+                <section id="section-authenticity" class="flex flex-row gap-0 sm:gap-4 md:gap-6 sm:p-12 fade-section">
+                    <div class="w-1/4 md:w-1/3">
+                        <h2 class="text-xs md:text-sm text-white uppercase tracking-tight sm:tracking-widest mono sub-title whitespace-nowrap">[ Authenticity ]</h2>
+                    </div>
+                    <div class="w-3/4 md:w-2/3 p-4 pt-6 sm:p-8 md:px-12 space-y-16 md:space-y-24 text-xs md:text-sm text-white tracking-tightest mono">
+                        <p>
+                            Authenticity is our fuel. <br><br>
+                            Everything we make comes from lived moments, not market trends. 
+                            It is the smell of petrol, the blur of headlights on wet asphalt, the small details only true enthusiasts notice.
+                        </p>
+                    </div>
+                    <div class="hidden sm:block">
+                        <p class="text-xs md:text-sm text-white uppercase tracking-widest mono" aria-hidden="true">A</p>
+                    </div>
+                </section>
+                <section id="section-respect" class="flex flex-row gap-0 sm:gap-4 md:gap-6 sm:p-12 fade-section">
+                    <div class="w-1/4 md:w-1/3">
+                        <h2 class="text-xs md:text-sm text-white uppercase tracking-tight sm:tracking-widest mono sub-title whitespace-nowrap">[ Respect ]</h2>
+                    </div>
+                    <div class="w-3/4 md:w-2/3 p-4 pt-6 sm:p-8 md:px-12 space-y-16 md:space-y-24 text-xs md:text-sm text-white tracking-tightest mono">
+                        <p>
+                            Respect sits at the heart of what we do. 
+                            <br><br>
+                            We carry respect for the builders who shaped the culture, the photographers who froze it in time, and the streets that gave it its character.
+                        </p>
+                    </div>
+                    <div class="hidden sm:block">
+                        <p class="text-xs md:text-sm text-white uppercase tracking-widest mono" aria-hidden="true">R</p>
+                    </div>
+                </section>
+
+                <section id="section-craftsmanship" class="flex flex-row gap-0 sm:gap-4 md:gap-6 sm:p-12 fade-section">
+                    <div class="w-1/4 md:w-1/3">
+                        <h2 class="text-xs md:text-sm text-white uppercase tracking-tight sm:tracking-widest mono sub-title whitespace-nowrap">[ Craftsmanship ]</h2>
+                    </div>
+                    <div class="w-3/4 md:w-2/3 p-4 pt-6 sm:p-8 md:px-12 space-y-16 md:space-y-24 text-xs md:text-sm text-white tracking-tightest mono">
+                        <p>
+                            Craftsmanship drives our process. 
+                            <br><br>
+                            Every layout, every angle, every grain of texture is intentional. <br>
+                            The goal is not just to show cars but to make you feel them.
+                        </p>
+                    </div>
+                    <div class="hidden sm:block">
+                        <p class="text-xs md:text-sm text-white uppercase tracking-widest mono" aria-hidden="true">C</p>
+                    </div>
+                </section>
+                
+                <section id="section-heritage" class="flex flex-row gap-0 sm:gap-4 md:gap-6 sm:p-12 fade-section">
+                    <div class="w-1/4 md:w-1/3">
+                        <h2 class="text-xs md:text-sm text-white uppercase tracking-tight sm:tracking-widest mono sub-title whitespace-nowrap">[ Heritage ]</h2>
+                    </div>
+                    <div class="w-3/4 md:w-2/3 p-4 pt-6 sm:p-8 md:px-12 space-y-16 md:space-y-24 text-xs md:text-sm text-white tracking-tightest mono">
+                        <p>
+                            Heritage keeps us looking back while we move forward. 
+                            <br><br>
+                            We want to preserve the emotion of your first dream car, the echo of an engine from your childhood, the moments worth holding onto.
+                        </p>
+                    </div>
+                    <div class="hidden sm:block">
+                        <p class="text-xs md:text-sm text-white uppercase tracking-widest mono" aria-hidden="true">H</p>
+                    </div>
+                </section>
+
+                <section id="section-inspiration" class="flex flex-row gap-0 sm:gap-4 md:gap-6 sm:p-12 fade-section">
+                    <div class="w-1/4 md:w-1/3">
+                        <h2 class="text-xs md:text-sm text-white uppercase tracking-tight sm:tracking-widest mono sub-title whitespace-nowrap">[ Inspiration ]</h2>
+                    </div>
+                    <div class="w-3/4 md:w-2/3 p-4 pt-6 sm:p-8 md:px-12 space-y-16 md:space-y-24 text-xs md:text-sm text-white tracking-tightest mono">
+                        <p>
+                            Inspiration comes from everywhere. 
+                            <br><br>
+                            It could be the shape of a classic Japanese silhouette or a conversation overheard at a petrol station. <br>
+                            The Archive is a meeting point for those sparks to become something tangible.
+                        </p>
+                    </div>
+                    <div class="hidden sm:block">
+                        <p class="text-xs md:text-sm text-white uppercase tracking-widest mono" aria-hidden="true">I</p>
+                    </div>
+                </section>
+
+                <section id="section-vision" class="flex flex-row gap-0 sm:gap-4 md:gap-6 sm:p-12 fade-section">
+                    <div class="w-1/4 md:w-1/3">
+                        <h2 class="text-xs md:text-sm text-white uppercase tracking-tight sm:tracking-widest mono sub-title whitespace-nowrap">[ Vision ]</h2>
+                    </div>
+                    <div class="w-3/4 md:w-2/3 p-4 pt-6 sm:p-8 md:px-12 space-y-16 md:space-y-24 text-xs md:text-sm text-white tracking-tightest mono">
+                        <p>
+                            Vision means we are not chasing the market. 
+                            <br><br>
+                            We are creating a lane where design, storytelling and car culture meet. <br>
+                            The posters are only the starting line.
+                        </p>
+                    </div>
+                    <div class="hidden sm:block">
+                        <p class="text-xs md:text-sm text-white uppercase tracking-widest mono" aria-hidden="true">V</p>
+                    </div>
+                </section>
+
+                <section id="section-evolution" class="flex flex-row gap-0 sm:gap-4 md:gap-6 sm:p-12 fade-section">
+                    <div class="w-1/4 md:w-1/3">
+                        <h2 class="text-xs md:text-sm text-white uppercase tracking-tight sm:tracking-widest mono sub-title whitespace-nowrap">[ Evolution ]</h2>
+                    </div>
+                    <div class="w-3/4 md:w-2/3 p-4 pt-6 sm:p-8 md:px-12 space-y-16 md:space-y-24 text-xs md:text-sm text-white tracking-tightest mono">
+                        <p>
+                            Evolution is the only constant. 
+                            <br><br>
+                            We are still students, still learning, still refining the way we tell stories. <br>
+                            Growth here is not a phase. It is a gear we never take out of drive.
+                        </p>
+                    </div>
+                    <div class="hidden sm:block">
+                        <p class="text-xs md:text-sm text-white uppercase tracking-widest mono" aria-hidden="true">E</p>
+                    </div>
+                </section>
+
+                <p class="text-xs md:text-sm text-gray-200 text-center tracking-tight leading-relaxed font-mono px-2 max-w-2sdxc fgvtrbh y6xl mx-auto">
+                    The8thArchive is not only about us. <br>
+                    It is a record of what car culture feels like, raw and personal, with meaning in every detail.
+                    Every drop is part of a bigger story. Not just ours but yours too.
+                    <br><br>
+                    Thank you for joining us on this journey, and welcome to The8thArchive.<br>
+                    — The Founders — 
+                </p>
+            </main>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer role="contentinfo" aria-label="Footer navigation" class="text-center text-gray-600 text-xs py-12 mt-12 px-12 border-t border-gray-800 mono">
+        <p class="sr-only">Site footer with legal and contact links</p>
+        © The8thArchive — [Est. 2025] — All prints limited. All rights reserved. <br><br>
+        <a href="terms-of-service.html" class="underline-hover">Terms</a> &nbsp;|&nbsp;
+        <a href="privacy-policy.html" class="underline-hover">Privacy</a> &nbsp;|&nbsp;
+        <a href="promotions.html" class="underline-hover">Promotions</a> &nbsp;|&nbsp;
+        <a href="contact.html" class="underline-hover">Contact</a>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // === Section Map ===
+            const sectionMap = {
+                "section-authenticity": document.getElementById("section-authenticity"),
+                "section-respect": document.getElementById("section-respect"),
+                "section-craftsmanship": document.getElementById("section-craftsmanship"),
+                "section-heritage": document.getElementById("section-heritage"),
+                "section-inspiration": document.getElementById("section-inspiration"),
+                "section-vision": document.getElementById("section-vision"),
+                "section-evolution": document.getElementById("section-evolution"),
+            };
+
+            const navButtons = document.querySelectorAll(".nav-letter");
+            const fadeSections = document.querySelectorAll(".fade-section");
+            const wrapper = document.querySelector(".fade-scroll-wrapper");
+
+            // === Smooth Scroll & Highlight Current Section ===
+            navButtons.forEach(btn => {
+                btn.addEventListener("click", () => {
+                    const id = btn.dataset.target;
+                    const section = document.getElementById(id);
+                    if (section) section.scrollIntoView({ behavior: "smooth", block: "start" });
+                });
+            });
+
+            function highlightCurrentLetter() {
+                let currentId = null;
+                const fromTop = window.scrollY + window.innerHeight / 2;
+
+                Object.entries(sectionMap).forEach(([id, el]) => {
+                    const offset = el.offsetTop;
+                    const height = el.offsetHeight;
+                    if (fromTop >= offset && fromTop <= offset + height) currentId = id;
+                });
+
+                navButtons.forEach(btn => {
+                    btn.classList.toggle("active", btn.dataset.target === currentId);
+                });
+            }
+
+            // === Fade Opacity Per Section ===
+            function handleFade() {
+                const centerY = window.innerHeight / 2;
+
+                fadeSections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const sectionMiddle = rect.top + rect.height / 2;
+                    const distance = Math.abs(centerY - sectionMiddle);
+
+                    section.classList.remove("fade-full", "fade-mid", "fade-low");
+                    section.classList.add(
+                        distance < centerY * 0.3 ? "fade-full" :
+                        distance < centerY * 0.6 ? "fade-mid" : "fade-low"
+                    );
+                });
+            }
+
+            // === Bottom Fade Removal for Last Section ===
+            function toggleBottomFadeBySection() {
+                const rect = sectionMap["section-evolution"].getBoundingClientRect();
+                const inView = rect.top < window.innerHeight * 0.65;
+                wrapper.classList.toggle("disable-bottom-fade", inView);
+            }
+
+            // === Section Nav Line Fill Animation ===
+            const lines = [
+                { from: "section-authenticity", to: "section-respect", selector: '[data-line="a-r"]' },
+                { from: "section-respect", to: "section-craftsmanship", selector: '[data-line="r-c"]' },
+                { from: "section-craftsmanship", to: "section-heritage", selector: '[data-line="c-h"]' },
+                { from: "section-heritage", to: "section-inspiration", selector: '[data-line="h-i"]' },
+                { from: "section-inspiration", to: "section-vision", selector: '[data-line="i-v"]' },
+                { from: "section-vision", to: "section-evolution", selector: '[data-line="v-e"]' },
+            ];
+
+            function clamp(val, min, max) {
+                return Math.max(min, Math.min(max, val));
+            }
+
+            function updateLineFills() {
+                const scrollY = window.scrollY;
+                lines.forEach(({ from, to, selector }) => {
+                    const fromEl = sectionMap[from];
+                    const toEl = sectionMap[to];
+                    const fill = document.querySelector(selector)?.querySelector(".fill-line");
+                    if (!fromEl || !toEl || !fill) return;
+
+                    const fromTop = fromEl.offsetTop;
+                    const toTop = toEl.offsetTop;
+                    const progress = clamp((scrollY - fromTop) / (toTop - fromTop), 0, 1);
+                    fill.style.transform = `scaleY(${progress})`;
+                });
+            }
+
+            // === Events ===
+            const onScrollOrResize = () => {
+                highlightCurrentLetter();
+                handleFade();
+                toggleBottomFadeBySection();
+                updateLineFills();
+            };
+
+            window.addEventListener("scroll", onScrollOrResize, { passive: true });
+            window.addEventListener("resize", onScrollOrResize);
+
+            // === Initial Run ===
+            onScrollOrResize();
+        });
+    </script>
+</body>
+</html>

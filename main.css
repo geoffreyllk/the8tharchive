@@ -1,0 +1,223 @@
+@font-face {
+  font-family: 'EurostileExtended';
+  src: url('/fonts/Eurostile-Extended.woff2') format('woff2'),
+    url('/fonts/Eurostile-Extended.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'FiraCode';
+  src: url('/fonts/FiraCode-Regular.woff2') format('woff2'),
+    url('/fonts/FiraCode-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+html {
+  scroll-behavior: smooth;
+  filter: sepia(0.2) contrast(1.05) brightness(0.98);
+}
+
+body {
+  background-color: #0f0f0f;
+  color: #eaeaea;
+  font-family: 'Helvetica Neue', sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+  text-underline-offset: 2px;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top:0; left:0; width:100%; height:100%;
+  background: url('/images/grain.avif') repeat;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+#sidebar, #menuBtn {
+  background-color: rgba(15, 15, 15, 0.9) !important;
+}
+
+.mono {
+  font-family: 'FiraCode', monospace;
+  letter-spacing: 0.02em;
+}
+
+.title {
+  font-family: 'EurostileExtended', sans-serif;
+  letter-spacing: 0.05em;
+}
+
+/* CUSTOMISATIONS */
+.underline {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.underline-hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.underline-hover:hover {
+  color: white;
+}
+
+/* accesibility */
+:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* Selection */
+::selection {
+  background: #eaeaea;
+  color: #0f0f0f;
+}
+
+::-moz-selection { /* For Firefox */
+  background: #eaeaea;
+  color: #0f0f0f;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+  background-color: #0f0f0f;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+  background-color: #0f0f0f;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0000;
+  border: 1px solid #4B5563;
+  border-radius: 0;
+  box-sizing: border-box; 
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  border-color: rgba(255, 255, 255, 0.88);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.88) #0f0f0f;
+}
+
+html, body {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.88) #0f0f0f;
+}
+
+
+/* Prevent image dragging and selection */
+img {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+
+/* Reduce for motion sickness */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+
+/* Navbar */
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fadeInRight {
+  animation: fadeInRight 0.8s ease-out forwards;
+  will-change: opacity, transform;
+}
+
+.nav-item {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+@media (min-width: 640px) {
+  .nav-item::after {
+    transition: width 0.3s ease, opacity 0.3s ease;
+  }
+
+  .nav-item:hover::after {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+/* underline setup */
+.nav-item::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+  height: 1px;
+  width: 0%;
+  background-color: white;
+  transition: width 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+
+.nav-item:hover::after {
+  width: 100%;
+  opacity: 1;
+}
+
+.nav-item:hover {
+  color: white;
+}
+
+.nav-item:hover {
+  text-shadow: 0 0 4px rgba(255,255,255,0.2);
+}
+
+
+/* Cart nav */
+@keyframes revealTopToBottom {
+  0% {
+    clip-path: inset(0 0 100% 0);
+    opacity: 0;
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+#cart-content {
+  writing-mode: vertical-rl;
+  animation: revealTopToBottom 3s ease-out forwards;
+  will-change: opacity, transform;
+}

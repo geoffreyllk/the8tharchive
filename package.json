@@ -1,0 +1,26 @@
+{
+  "name": "the8tharchive",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "minify:js": "terser script.js -o dist/script.min.js --compress --mangle && terser detect-touch.js -o dist/detect-touch.min.js --compress --mangle",
+    "dev:css": "tailwindcss -i ./input.css -o ./dist/style.css --watch",
+    "build:css": "tailwindcss -i ./input.css -o ./dist/style.css --minify",
+    "minify:main": "cleancss -o ./dist/main.min.css ./main.css",
+    "build": "npm run build:css && npm run minify:main"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "cssnano": "^7.1.1",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17",
+    "terser": "^5.44.0"
+  },
+  "dependencies": {
+    "@tailwindcss/line-clamp": "^0.4.4"
+  }
+}

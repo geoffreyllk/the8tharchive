@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <title>Shop Limited Edition Posters | The8thArchive</title>
+    <meta name="description" content="Browse our exclusive collection of limited edition automotive posters. Each piece is numbered and will never be reprinted.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://the8tharchive.com.my/shop/shop">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://the8tharchive.com.my/shop/shop">
+    <meta property="og:title" content="Shop Limited Edition Automotive Posters">
+    <meta property="og:description" content="Exclusive numbered car art - Secure yours before they're archived">
+    <meta property="og:image" content="https://the8tharchive.com.my/images/og-thubmnail.webp">
+    <meta property="og:image:alt" content="The8thArchive Poster Shop">
+
+    <!-- Favicon -->
+    <link rel="icon" href="../images/favicon/dark/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" href="../images/favicon/dark/favicon-32x32.png">
+
+    <link rel="icon" href="../images/favicon/light/favicon.ico" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/png" href="../images/favicon/light/favicon-32x32.png" media="(prefers-color-scheme: dark)">
+
+    <link rel="apple-touch-icon" href="../images/favicon/dark/apple-touch-icon.png">
+    <link rel="manifest" href="../site.webmanifest">
+    
+    <!-- Preloads -->
+    <link rel="preload" href="../fonts/Eurostile-Extended.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../fonts/FiraCode-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../images/grain.avif" as="image">
+    <link rel="preload" href="../dist/style.css" as="style">
+    <link rel="preload" href="../dist/main.min.css" as="style">
+    <link rel="preload" href="shop.json" as="fetch" crossorigin>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../dist/main.min.css">
+    <link rel="stylesheet" href="../dist/style.css">
+    <noscript>
+        <link rel="stylesheet" href="../dist/main.min.css">
+        <link rel="stylesheet" href="../dist/style.css">
+    </noscript>
+
+    <style>
+        .shop-grain{
+            background-image: url('../images/grain.avif');
+            background-blend-mode: overlay;
+        }
+        main{
+            margin: 0 auto 0 auto;
+        }
+        @media (max-width: 1045px) {
+            main {
+                margin-right: 0.75rem;
+                margin-left: auto;
+            }
+        }
+        .poster-img { max-height: 100%; object-fit: cover; width: 100%; }
+        .slideshow {
+            display: flex; overflow: hidden; position: relative; width: 100%;
+            max-height: 88vh; justify-items: center; align-items: center;
+            aspect-ratio: 4 / 2.5; min-height: 10rem;
+        }
+        .slide-track {
+            display: flex; transition: transform 0.8s ease-in-out; width: 100%;
+        }
+        .slide-track img {
+            width: 100%; object-fit: contain; flex-shrink: 0;
+        }
+        @media (max-width: 300px) {
+            #slideCounter{
+                display: none;
+            }
+        }
+        .arrow-btn {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            padding: 0.5rem 1rem; color: #4B5563; cursor: pointer;
+        }
+        .arrow-left { left: 0.5rem; }
+        .arrow-right { right: 0.5rem; }
+        .arrow-btn:hover { color:black; }
+        .frameOptionBtn {
+            display: inline-block; text-align: center; flex: 1;
+            padding: 0.5rem 1.5rem; border: 1px solid #4B5563;
+            color: white; text-transform: uppercase; font-size: 0.75rem;
+            transition: all 0.3s ease;
+        }
+        .frameOptionBtn:hover, .frameOptionBtn.active { border-color: white; }
+
+        /* not touch */
+        .no-touch #addToCartBtn:active{
+            color: white;
+            background-color: black;
+            transition: all 0.3s ease;
+        }
+        .no-touch .qty-btn button:hover:not(:disabled) {
+            border-color: white;
+        }
+
+        .no-touch #addToCartBtn:hover:not(:disabled) {  
+            background-color: white;
+            color: black;
+            border-color: white;
+        }
+        
+        /* touchscreen */
+        .touch #addToCartBtn:active{
+            color: black;
+            background-color: white;
+            transition: all 0.5s ease;
+        }
+        .touch .qty-btn button:active {
+            border-color: white;
+            transition: all 0.5s ease;
+        }
+        
+        @keyframes dropDown {
+            from {
+                top: -100px;
+                opacity: 0;
+            }
+            to {
+                top: 0;
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                top: 0;
+                opacity: 1;
+            }
+            to {
+                top: -100px;
+                opacity: 0;
+            }
+        }
+
+        #cartNotice {
+            top: -100px;
+            left: 50%;
+            pointer-events: none;
+            transform: translateX(-50%);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+        }
+
+        /* Show state */
+        #cartNotice.show {
+            animation: dropDown 1s ease forwards;
+        }
+
+        /* Hide state */
+        #cartNotice.hide {
+            animation: slideUp 0.8s ease forwards;
+        }
+
+        .line-clamp-3 {
+            display: -webkit-box;
+            line-clamp: 3;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body class="shop-grain">
+    <a href="#main-content" class="skip-to-content sr-only focus:not-sr-only absolute flex justify-center bg-black text-white p-2 z-50">[ Skip to content ]</a>
+
+    <!-- promotions -->
+    <div id="promo-sentinel" class="w-full h-px"></div>
+    <a id="promo-link" href="../promotions.html" class="hidden sm:sticky top-0 z-30 flex justify-center items-center gap-2 bg-black bg-opacity-70 text-gray-200 text-center text-xs sm:text-sm tracking-widest py-2 px-12 sm:px-16 transition-colors duration-200" style="background-color: #0f0f0f;" aria-label="Limited Time Sale — 31 days, 31% off all orders">
+        <span>&#10033;</span>
+        <p class="hover:underline m-0">Launch Special — 40% OFF The Nocturnal Spirit</p>
+        <span>&#10033;</span>
+    </a>
+
+    <a href="../cart.html" class="group fixed right-0 top-0 z-40 h-full flex justify-center items-center w-9" aria-label="View your shopping cart">
+        <div id="cart-content" class="flex gap-2 items-center justify-center text-xs uppercase tracking-wider mono text-white group-hover:text-gray-200 transition-colors duration-300 ease-in-out">
+            <div class="h-12 w-px bg-gray-700 group-hover:bg-gray-300"></div>
+            <span class="sr-only">Shopping Cart</span>
+            <span>Cart</span>
+            <div class="h-12 w-px bg-gray-700 group-hover:bg-gray-300"></div>
+            <span class="sr-only">Items in cart:</span><span id="cartCount" aria-live="polite">0</span>
+        </div>
+    </a>
+        
+    <main id="main-content" class="px-6 py-12 max-w-5xl">
+        <div class="flex items-end justify-between text-lg text-gray-200 uppercase mb-4">
+            <header>
+                <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold uppercase leading-none tracking-tightest sm:tracking-tight"></h1>
+            </header>
+            <p id="slideCounter" class="mono text-sm sm:text-base md:text-lg whitespace-nowrap leading-none tracking-tightest sm:tracking-normal md:tracking-widest"></p>
+        </div>
+
+        <section class="relative overview">
+        <div class="slideshow shadow-lg relative">
+            <div class="slide-track" id="slideTrack"></div>
+            <div class="arrow-btn arrow-left" onclick="changeSlide(-1)">&#10094;</div>
+            <div class="arrow-btn arrow-right" onclick="changeSlide(1)">&#10095;</div>
+        </div>
+        </section>
+
+        <section class="mt-6 md:mt-8 space-y-16 specs">
+            <div class="md:col-span-2 space-y-4 sm:space-y-6">
+                <div>
+                    <p id="limited-edition" class="uppercase text-yellow-500 text-sm font-semibold tracking-wide mb-1 sm:mb-2 mono" style="display: none;"><span id="editionInfo"></span></p>
+                    <h2 class="text-2xl font-semibold">Car Title</h2>
+                </div>
+
+                <div class="border-l-2 border-gray-600 pl-4 text-gray-300 italic text-base leading-relaxed">
+                    <p id="posterDesc" class="line-clamp-3 transition-all duration-300">
+                        Description
+                    </p>
+                    <button id="readMoreBtn" class="mt-2 hidden px-4 py-1 text-xs font-thin tracking-wide text-gray-400 border border-gray-500 hover:text-gray-300 hover:border-gray-300 uppercase mono">Read more</button>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 text-sm text-gray-400">
+                    <div><p class="uppercase text-xs text-gray-500 mono">Size</p><p>A2 / 42 × 59.4 cm</p></div>
+                    <div><p class="uppercase text-xs text-gray-500 mono">Print</p><p>Matte Fine Art (230gsm)</p></div>
+                    <div><p class="uppercase text-xs text-gray-500 mono">Packaging</p><p>Kraft-wrapped, sealed tube</p></div>
+                    <div><p class="uppercase text-xs text-gray-500 mono">Release</p><p>####</p></div>
+                    <div><p class="uppercase text-xs text-gray-500 mono">Edition</p><p>1 of ##</p></div>
+                    <div><p class="uppercase text-xs text-gray-500">Availability</p><p id="stockText" class="text-yellow-500 font-medium">Only # left</p></div>
+                </div>
+            </div>
+
+            <div class="w-full bg-[#111111] border border-gray-700 p-5 sm:p-6 shadow-md buy">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 mb-6">
+                    <div>
+                        <p class="uppercase text-xs text-gray-400 tracking-wide mono">Price</p>
+                        <div class="flex items-center space-x-2 sm:space-x-3 pt-0 sm:pt-1">
+                            <span id="priceLabel" class="text-2xl font-semibold text-white tracking-tight">RM #</span>
+                            <span id="originalPrice" class="text-xs sm:text-sm text-gray-500 line-through tracking-wide hidden">RM #</span>
+                            <a href="../promotions.html" id="discount-label" class="flex items-center py-0 text-xs text-gray-500 uppercase border border-gray-700 hover:text-gray-200 hover:border-gray-200 px-2 mono">⚡#% Off</a>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="uppercase text-xs text-gray-400 mb-1 mono">Framing</p>
+                        <div class="flex gap-2 md:gap-3">
+                            <button class="frameOptionBtn mono" data-option="unframed">Unframed</button>
+                            <button class="frameOptionBtn mono" data-option="framed">Framed</button>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="uppercase text-xs text-gray-400 mb-1 mono">Details</p>
+                        <p id="frameDesc" class="text-xs text-gray-500 italic leading-relaxed">Rolled poster in kraft tube — ready to frame or pin.</p>
+                    </div>
+                    <div>
+                        <p class="uppercase text-xs text-gray-400 mb-1 mono">Quantity</p>
+                        <div class="qty-btn flex gap-3 items-center">
+                            <button class="mono border border-gray-700 px-3 text-xs">–</button>
+                            <span class="mono text-white text-sm sm:text-base">1</span>
+                            <button class="mono border border-gray-700 px-3 text-xs">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="addToCartBtn" class="mono w-full text-center px-6 py-2 border border-gray-700 text-white transition duration-300 ease-in-out uppercase text-base font-bold tracking-wide">
+                    Add to Cart
+                </button>
+            </div>
+            <a href="../index.html" class="text-sm text-gray-500 hover:text-white underline inline-block mono" aria-label="Back to Archive page">&larr; Back to Archive</a>
+        </section>
+
+        <div id="cartNotice" class="fixed text-gray-200 bg-black border border-gray-200 text-xs sm:text-sm text-center uppercase my-6 px-4 py-2 w-1/2 z-50 mono">Item added to cart</div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer role="contentinfo" aria-label="Footer navigation" class="text-center text-gray-600 text-xs py-12 mt-0 sm:mt-4 md:mt-8 px-12 border-t border-gray-800 mono">
+        <p class="sr-only">Site footer with legal and contact links</p>
+        © The8thArchive — [Est. 2025] — All prints limited. All rights reserved. <br><br>
+        <a href="../terms-of-service.html" class="underline-hover">Terms</a> &nbsp;|&nbsp;
+        <a href="../privacy-policy.html" class="underline-hover">Privacy</a> &nbsp;|&nbsp;
+        <a href="../promotions.html" class="underline-hover">Promotions</a> &nbsp;|&nbsp;
+        <a href="../contact.html" class="underline-hover">Contact</a>
+    </footer>
+
+    <script>
+        // sticky promotions toggle
+        const promoLink = document.getElementById('promo-link');
+        const promoSentinel = document.getElementById('promo-sentinel');
+
+        const promoObserver = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    promoLink.classList.add('border-b', 'border-gray-700', 'hover:border-gray-400');
+                    promoLink.classList.remove('bg-black');
+                    promoLink.style.backgroundColor = '#0f0f0f';
+
+                } else {
+                    promoLink.classList.remove('border-b', 'border-gray-700', 'hover:border-gray-400');
+                    promoLink.classList.add('bg-black');
+                    promoLink.style.backgroundColor = ''; 
+                }
+            },
+            {
+                root: null,
+                threshold: 0,
+            }
+        );
+
+        promoObserver.observe(promoSentinel);
+
+        let cartNoticeTimeout;
+
+        function showCartNotice(message = "Item added to cart") {
+            const notice = document.getElementById("cartNotice");
+            notice.textContent = message;
+
+            notice.classList.remove("show", "hide");
+            notice.style.animation = "none";
+            void notice.offsetWidth;
+            notice.style.animation = null;
+            notice.classList.add("show");
+
+            clearTimeout(cartNoticeTimeout);
+            cartNoticeTimeout = setTimeout(() => {
+                notice.classList.remove("show");
+                notice.classList.add("hide");
+            }, 2000);
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const pathSegments = window.location.pathname.split('/');
+            const posterId = pathSegments[pathSegments.length - 1];
+            const urlParams = new URLSearchParams(window.location.search);
+            const frameParam = urlParams.get("frame") || "unframed";
+
+            let selectedFrame = frameParam;
+            let currentSlide = 0;
+
+            const cartCountEl = document.getElementById("cartCount");
+            const addToCartBtn = document.getElementById("addToCartBtn");
+            const plusBtn = document.querySelector(".qty-btn button:last-child");
+            const minusBtn = document.querySelector(".qty-btn button:first-child");
+            const qtyDisplay = document.querySelector(".qty-btn span");
+
+            function updateCartCountDisplay() {
+                const cart = JSON.parse(localStorage.getItem("cart")) || [];
+                const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+                const cartContentEl = document.getElementById("cart-content");
+
+                cartCountEl.textContent = totalItems;
+
+                if (cartContentEl) {
+                    cartContentEl.style.animation = "none";
+                    void cartContentEl.offsetWidth;
+                    cartContentEl.style.animation = "revealTopToBottom 3s ease-out forwards";
+                }
+            }
+
+            function enableHoverStyles() {
+                addToCartBtn.classList.add("hover:bg-white", "hover:text-black", "hover:border-white");
+
+                plusBtn.classList.add("hover:border-white");
+                minusBtn.classList.add("hover:border-white");
+            }
+
+            function disableHoverStyles() {
+                addToCartBtn.classList.remove("hover:bg-white", "hover:text-black", "hover:border-white");
+
+                plusBtn.classList.remove("hover:border-white");
+                minusBtn.classList.remove("hover:border-white");
+            }
+
+            function disableAddToCartUI(statusText = "Sold Out") {
+                addToCartBtn.disabled = true;
+                addToCartBtn.textContent = statusText;
+                addToCartBtn.classList.add("cursor-not-allowed", "text-gray-200", "border-gray-600");
+
+                plusBtn.disabled = true;
+                plusBtn.classList.add("cursor-not-allowed", "border-gray-600", "text-gray-600");
+
+                minusBtn.disabled = true;
+                minusBtn.classList.add("cursor-not-allowed", "border-gray-600", "text-gray-600");
+
+                disableHoverStyles();
+
+                addToCartBtn.onclick = null;
+            }
+
+
+            function enableAddToCartUI() {
+                addToCartBtn.disabled = false;
+                addToCartBtn.textContent = "Add to Cart";
+                addToCartBtn.classList.remove("cursor-not-allowed", "text-gray-200", "border-gray-600");
+
+                plusBtn.disabled = false;
+                plusBtn.classList.remove("cursor-not-allowed", "border-gray-600", "text-gray-600");
+
+                minusBtn.disabled = false;
+                minusBtn.classList.remove("cursor-not-allowed", "border-gray-600", "text-gray-600");
+
+                if (document.documentElement.classList.contains("no-touch")) {
+                    enableHoverStyles();
+                }
+            }
+
+            function updateQtyButtonStates(qty, maxQty) {
+                const isNoTouch = document.documentElement.classList.contains("no-touch");
+
+                // MINUS button logic
+                minusBtn.disabled = qty <= 1;
+                minusBtn.classList.toggle("cursor-not-allowed", qty <= 1);
+                minusBtn.classList.toggle("border-gray-600", qty <= 1);
+                minusBtn.classList.toggle("text-gray-600", qty <= 1);
+
+                // PLUS button logic
+                plusBtn.disabled = qty >= maxQty;
+                plusBtn.classList.toggle("cursor-not-allowed", qty >= maxQty);
+                plusBtn.classList.toggle("border-gray-600", qty >= maxQty);
+                plusBtn.classList.toggle("text-gray-600", qty >= maxQty);
+
+                if (isNoTouch) {
+                    if (!plusBtn.disabled) {
+                        plusBtn.classList.add("hover:border-white");
+                    } else {
+                        plusBtn.classList.remove("hover:border-white");
+                    }
+
+                    if (!minusBtn.disabled) {
+                        minusBtn.classList.add("hover:border-white");
+                    } else {
+                        minusBtn.classList.remove("hover:border-white");
+                    }
+                }
+            }
+
+            function adjustQuantity(delta, stock, posterId) {
+                const cart = JSON.parse(localStorage.getItem("cart")) || [];
+                const totalInCart = cart
+                    .filter(item => item.id.startsWith(`${posterId}-`))
+                    .reduce((sum, item) => sum + item.quantity, 0);
+
+                const currentQty = parseInt(qtyDisplay.textContent);
+                const maxQty = stock - totalInCart;
+
+                if (maxQty <= 0) {
+                    qtyDisplay.textContent = "0";
+                    disableAddToCartUI();
+                    return;
+                }
+
+                const newQty = currentQty + delta;
+                if (newQty >= 1 && newQty <= maxQty) {
+                    qtyDisplay.textContent = newQty;
+                    updateQtyButtonStates(newQty, maxQty);
+                }
+            }
+
+            function computePrice(priceInfo) {
+                // returns { hasPrice, original, final, hasPromo, promoText, discountMeta }
+                if (!priceInfo || priceInfo.original == null) return { hasPrice: false };
+
+                const original = Number(priceInfo.original);
+                const discount = priceInfo.discount;
+
+                if (!discount) {
+                    return { hasPrice: true, original, final: original, hasPromo: false, promoText: null, discountMeta: null };
+                }
+                if (discount.type === "percent" && typeof discount.value === "number") {
+                    const pct = discount.value;
+                    const final = Math.max(0, Math.floor(original * (100 - pct) / 100));
+                    const promoText = `⚡ ${pct}% OFF`;
+                    return { hasPrice: true, original, final, hasPromo: true, promoText, discountMeta: { type: "percent", value: pct } };
+                }
+                if (discount.type === "fixed" && typeof discount.value === "number") {
+                    const off = Number(discount.value);
+                    const final = Math.max(0, Math.floor(original - off));
+                    const promoText = `⚡ RM${off} OFF`;
+                    return { hasPrice: true, original, final, hasPromo: true, promoText, discountMeta: { type: "fixed", value: off } };
+                }
+                // fallback
+                return { hasPrice: true, original, final: original, hasPromo: false, promoText: null, discountMeta: null };
+                }
+
+            function updateFrameSection(poster) {
+                const priceLabel = document.getElementById("priceLabel");
+                const originalPrice = document.getElementById("originalPrice");
+                const frameDesc = document.getElementById("frameDesc");
+                const promoLink = document.getElementById("promo-link");
+                const discountLabel = document.getElementById("discount-label");
+
+                function setFrame(option) {
+                    selectedFrame = option;
+                    document.querySelectorAll(".frameOptionBtn").forEach(btn =>
+                    btn.classList.toggle("active", btn.dataset.option === option)
+                    );
+
+                    const priceInfo = poster.price && poster.price[option] ? poster.price[option] : { original: null, discount: null };
+                    const p = computePrice(priceInfo);
+
+                    // Promo sentinel logic:
+                    // priority: poster.promo (explicit string) > computed promo from discount > hidden
+                    if (poster.promo) {
+                    promoLink.classList.remove("hidden");
+                    promoLink.href = `../promotions.html?ref=${encodeURIComponent(posterId)}`;
+                    promoLink.setAttribute("aria-label", poster.promo);
+                    promoLink.innerHTML = `<span>★</span><p class="hover:underline m-0">${poster.promo}</p><span>★</span>`;
+                    } else if (p.hasPromo) {
+                    promoLink.classList.remove("hidden");
+                    promoLink.href = `../promotions.html?ref=${encodeURIComponent(posterId)}`;
+                    promoLink.setAttribute("aria-label", p.promoText);
+                    promoLink.innerHTML = `<span>★</span><p class="hover:underline m-0">${p.promoText}</p><span>★</span>`;
+                    } else {
+                    promoLink.classList.add("hidden");
+                    }
+
+                    // Price rendering
+                    if (!p.hasPrice) {
+                    priceLabel.textContent = "RM —";
+                    originalPrice.classList.add("hidden");
+                    if (discountLabel) discountLabel.style.display = "none";
+                    } else if (!p.hasPromo || p.final === p.original) {
+                    priceLabel.textContent = `RM ${p.original}`;
+                    originalPrice.classList.add("hidden");
+                    if (discountLabel) discountLabel.style.display = "none";
+                    } else {
+                    priceLabel.textContent = `RM ${p.final}`;
+                    originalPrice.textContent = `RM ${p.original}`;
+                    originalPrice.classList.remove("hidden");
+                    if (discountLabel) {
+                        discountLabel.textContent = p.promoText;
+                        discountLabel.style.display = "inline-flex";
+                    }
+                    }
+
+                    frameDesc.textContent = {
+                    unframed: "Rolled poster in kraft tube — ready to frame or pin.",
+                    framed:   "Framed & sealed, ships flat in protective rigid box."
+                    }[option];
+
+                    // update quantity controls
+                    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+                    const inCart = cart
+                    .filter(item => item.id.startsWith(`${posterId}-`))
+                    .reduce((sum, item) => sum + item.quantity, 0);
+
+                    const stockVal = (typeof poster.stock === "number") ? poster.stock : Infinity;
+                    updateQtyControls(stockVal, inCart);
+                }
+
+                // initialize and bind buttons
+                setFrame(selectedFrame);
+                document.querySelectorAll(".frameOptionBtn").forEach(btn =>
+                    btn.addEventListener("click", () => setFrame(btn.dataset.option))
+                );
+                }
+
+            function updateQtyControls(stock, inCart) {
+                const maxQty = stock - inCart;
+                if (maxQty <= 0) {
+                    qtyDisplay.textContent = "0";
+                    disableAddToCartUI();
+                    return;
+                }
+
+                qtyDisplay.textContent = "1";
+                updateQtyButtonStates(1, maxQty);
+
+                minusBtn.onclick = () => adjustQuantity(-1, stock, posterId);
+                plusBtn.onclick = () => adjustQuantity(1, stock, posterId);
+            }
+
+            function setupSlideshow(images) {
+                const track = document.getElementById("slideTrack");
+                track.innerHTML = images.map(img => `<img src="${img.src}" alt="${img.alt}" onerror="this.src='assets/placeholder-404.webp';" />`).join("");
+                document.getElementById("slideCounter").textContent = `1 / ${images.length}`;
+
+                window.changeSlide = (dir) => {
+                    currentSlide = (currentSlide + dir + images.length) % images.length;
+                    track.style.transform = `translateX(-${currentSlide * 100}%)`;
+                    document.getElementById("slideCounter").textContent = `${currentSlide + 1} / ${images.length}`;
+                };
+            }
+
+            function updateMetaTags(poster) {
+                document.title = `${poster.title} | The8thArchive`;
+
+                document.querySelector('meta[name="description"]').setAttribute('content', poster.metaDescription);
+
+                document.querySelector('meta[property="og:title"]').setAttribute('content', poster.title + " | The8thArchive");
+                document.querySelector('meta[property="og:description"]').setAttribute('content', poster.ogDescription);
+                document.querySelector('meta[property="og:image"]').setAttribute('content', poster.images[0].src);
+                document.querySelector('meta[property="og:image:alt"]').setAttribute('content', poster.title + " Limited Edition Poster");
+
+                const canonical = `https://the8tharchive.com.my/shop/${posterId}.html`;
+                document.querySelector('link[rel="canonical"]').setAttribute('href', canonical);
+
+                document.querySelector('meta[property="og:url"]').setAttribute('content', canonical);
+
+                let keywordsMeta = document.querySelector('meta[name="keywords"]');
+                if (!keywordsMeta) {
+                    keywordsMeta = document.createElement('meta');
+                    keywordsMeta.name = "keywords";
+                    document.head.appendChild(keywordsMeta);
+                }
+                keywordsMeta.setAttribute('content', poster.keywords.join(', ') + ', automotive posters, limited edition art');
+            }
+
+
+            fetch("shop.json")
+                .then(res => res.json())
+                .then(data => {
+                    const poster = data[posterId];
+                    if (!poster) return;
+
+                    document.querySelector("h1").textContent = poster.title || "";
+                    document.querySelector("h2").textContent = poster.car || "";
+                    document.title = `${poster.title || "Shop"} — The8thArchive`;
+
+                    const posterDesc = document.getElementById("posterDesc");
+                    posterDesc.innerHTML = poster.description || "Description";
+                    const readMoreBtn = document.getElementById("readMoreBtn");
+
+                    function isClamped(el) {
+                        return el.scrollHeight > el.clientHeight;
+                    }
+
+                    // Only show "Read More" if clamped
+                    requestAnimationFrame(() => {
+                        if (isClamped(posterDesc)) {
+                            readMoreBtn.classList.remove("hidden");
+                        } else {
+                            readMoreBtn.classList.add("hidden");
+                        }
+                    });
+                    
+                    readMoreBtn.addEventListener("click", () => {
+                        posterDesc.classList.toggle("line-clamp-3");
+                        if (posterDesc.classList.contains("line-clamp-3")) {
+                            readMoreBtn.textContent = "Read more";
+                        } else {
+                            readMoreBtn.textContent = "Read less";
+                        }
+                    });                                        
+
+                    document.getElementById("stockText").textContent = (typeof poster.stock === "number") ? `Only ${poster.stock} left` : "N/A";
+
+                    const specEls = document.querySelectorAll(".specs .grid > div p:last-child");
+                    specEls[3].textContent = poster.release || "TBA";
+
+                    const edition = poster.edition;
+                    const editionInfoEl = document.getElementById("editionInfo");
+                    const limitedEditionEl = document.getElementById("limited-edition");
+
+                    let editionText = "Display Only";
+                    let showLimited = false;
+
+                    switch (true) {
+                        case typeof edition !== "number":
+                            editionText = "Display Only";
+                            break;
+                        case edition === 0:
+                            editionText = "Open Release";
+                            break;
+                        case edition === 1:
+                            editionText = "1 of 1";
+                            showLimited = true;
+                            break;
+                        case edition > 1:
+                            editionText = `1 of ${edition}`;
+                            showLimited = true;
+                            break;
+                    }
+
+                    specEls[4].textContent = editionText;
+                    editionInfoEl.textContent = showLimited ? `Limited Edition — ${editionText}` : "";
+                    limitedEditionEl.style.display = showLimited ? "block" : "none";
+
+                    const stock = poster.stock;
+                    if (typeof stock === "number") {
+                        if (stock <= 0) {
+                            specEls[5].textContent = "Sold Out";
+                        } else if (stock <= 5) {
+                            specEls[5].textContent = `Only ${stock} left`;
+                        } else if (stock <= 20) {
+                            specEls[5].textContent = `${stock} in stock`;
+                        } else if (stock === 999) {
+                            specEls[5].textContent = "In Stock";
+                        } else {
+                            specEls[5].textContent = `${stock} available`;
+                        }
+                    } else {
+                        specEls[5].textContent = "N/A";
+                    }
+
+                    setupSlideshow(poster.images || []);
+                    updateFrameSection(poster);
+                    updateMetaTags(poster);
+
+                    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+                    const inCart = cart
+                        .filter(item => item.id.startsWith(`${posterId}-`))
+                        .reduce((sum, item) => sum + item.quantity, 0);
+
+                    const posterStock = (typeof poster.stock === "number") ? poster.stock : Infinity;
+
+                    if (posterStock <= 0 || inCart >= posterStock) {
+                        qtyDisplay.textContent = "0";
+                        disableAddToCartUI("Sold Out");
+                    } else {
+                        qtyDisplay.textContent = "1";
+                        enableAddToCartUI();
+                    }
+                    updateQtyControls(posterStock, inCart);
+
+                    const rawStatus = (poster.status || "").toLowerCase();
+                    const normStatus = rawStatus.replace(/[\s\-_]+/g, "");
+
+                    if (normStatus.includes("coming")) {
+                        disableAddToCartUI("Coming Soon");
+                        addToCartBtn.onclick = null;
+                    } else if (normStatus.includes("display")) {
+                        disableAddToCartUI("Display Only");
+                    }
+
+                    addToCartBtn.addEventListener("click", () => {
+                        if (addToCartBtn.disabled) return;
+
+                        const priceInfo = (poster.price && poster.price[selectedFrame]) ? poster.price[selectedFrame] : null;
+                        const p = computePrice(priceInfo);
+
+                        if (!p.hasPrice) {
+                            showCartNotice("Price unavailable — enquire for details");
+                            return;
+                        }
+
+                        const quantity = parseInt(qtyDisplay.textContent, 10) || 1;
+                        const cartItemId = `${posterId}-${selectedFrame}`;
+
+                        let updatedCart = JSON.parse(localStorage.getItem("cart")) || [];
+                        const index = updatedCart.findIndex(item => item.id === cartItemId);
+
+                        const inCartTotal = updatedCart
+                            .filter(item => item.id.startsWith(`${posterId}-`))
+                            .reduce((sum, item) => sum + item.quantity, 0);
+
+                        const remaining = (typeof poster.stock === "number" && isFinite(poster.stock)) ? (poster.stock - inCartTotal) : Infinity;
+
+                        addToCartBtn.classList.add("clicked");
+                        setTimeout(() => addToCartBtn.classList.remove("clicked"), 1500);
+
+                        if (quantity > remaining || remaining <= 0) {
+                            disableAddToCartUI("Sold Out");
+                            return;
+                        }
+
+                        if (index !== -1) {
+                            updatedCart[index].quantity = Math.min(updatedCart[index].quantity + quantity, poster.stock || updatedCart[index].quantity + quantity);
+                        } else {
+                            updatedCart.push({
+                            id: cartItemId,
+                            title: poster.title,
+                            frame: selectedFrame,
+                            price: p.final,
+                            originalPrice: p.original,
+                            discountMeta: p.discountMeta,
+                            quantity,
+                            stock: poster.stock,
+                            img: poster.img,
+                            link: `./shop/${posterId}`
+                            });
+                        }
+
+                        localStorage.setItem("cart", JSON.stringify(updatedCart));
+                        updateCartCountDisplay();
+                        qtyDisplay.textContent = "1";
+
+                        const latestCart = JSON.parse(localStorage.getItem("cart")) || [];
+                        const newInCart = latestCart
+                            .filter(item => item.id.startsWith(`${posterId}-`))
+                            .reduce((sum, item) => sum + item.quantity, 0);
+
+                        updateQtyControls(posterStock, newInCart);
+                        showCartNotice("Item added to cart");
+                        });
+
+                    updateCartCountDisplay();
+                });
+        });
+    </script>
+</body>
+</html>

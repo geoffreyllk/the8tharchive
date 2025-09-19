@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <title>Limited Time Offers | The8thArchive</title>
+    <meta name="description" content="Current promotions on limited edition automotive posters. Limited quantities available.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://the8tharchive.com.my/promotions">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://the8tharchive.com.my/promotions">
+    <meta property="og:title" content="Exclusive Collector Deals | Limited Time Offers">
+    <meta property="og:description" content="Special promotions on numbered automotive art - Act before they're gone">
+    <meta property="og:image" content="https://the8tharchive.com.my/images/og-thubmnail.webp">
+    <meta property="og:image:alt" content="Limited time offers on automotive posters">
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon/dark/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" href="images/favicon/dark/favicon-32x32.png">
+
+    <link rel="icon" href="images/favicon/light/favicon.ico" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/png" href="images/favicon/light/favicon-32x32.png" media="(prefers-color-scheme: dark)">
+
+    <link rel="apple-touch-icon" href="images/favicon/dark/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <!-- Preloads -->
+    <link rel="preload" href="fonts/Eurostile-Extended.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/FiraCode-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/images/grain.avif" as="image">
+    <link rel="preload" href="/dist/style.css" as="style">
+    <link rel="preload" href="/dist/main.min.css" as="style">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/dist/main.min.css">
+    <link rel="stylesheet" href="/dist/style.css">
+    <noscript>
+        <link rel="stylesheet" href="/dist/main.min.css">
+        <link rel="stylesheet" href="/dist/style.css">
+    </noscript>
+    
+    <!-- Script -->
+    <script src="dist/script.min.js" defer></script>
+</head>
+<body class="bg-black text-gray-300">
+    <a href="#main-content" class="sr-only focus:not-sr-only absolute flex justify-center bg-black text-white p-2 z-50">[ Skip to content ]</a>
+
+    <button id="menuBtn" class="fixed top-0 left-0 h-full w-9 bg-black bg-opacity-90 border-r border-gray-700 hover:border-white transition-all duration-500 ease-in-out z-50 group mono animate-fadeInRight opacity-0" style="animation-delay: 0.4s; animation-fill-mode: both;" 
+        aria-controls="sidebar" aria-expanded="false" aria-label="Open main menu" type="button">
+        <span style="text-shadow: 0 0 1px black, 0 0 1px black;" class="absolute left-0 top-1/2 transform -rotate-90 uppercase tracking-widest text-sm text-white hover:text-gray-300 transition-colors">
+        Menu
+        </span>
+    </button>
+
+    <aside id="sidebar" class="fixed top-0 left-0 h-full w-0 bg-black bg-opacity-90 border-gray-700 md:hover:border-white overflow-hidden transition-all duration-500 ease-in-out z-50" role="navigation" aria-label="Site menu" inert>
+        <nav class="flex flex-col justify-center items-center text-center h-full px-6 space-y-6" aria-label="Main navigation">
+        <h2 class="sr-only">Main Site Navigation</h2>
+        <a href="index.html" class="nav-item block text-lg uppercase text-gray-400 hover:text-white transition-all opacity-0 -translate-x-5 mono" aria-current="page">Archive</a>
+        <a href="about.html" class="nav-item block text-lg uppercase text-gray-400 hover:text-white transition-all opacity-0 -translate-x-5 mono">About</a>
+        <a href="collections.html" class="nav-item block text-lg uppercase text-gray-400 hover:text-white transition-all opacity-0 -translate-x-5 mono">Collections</a>
+        <a href="cart.html" class="nav-item block text-lg uppercase text-gray-400 hover:text-white transition-all opacity-0 -translate-x-5 mono">Cart</a>
+        </nav>
+        <button id="closeBtn" class="absolute top-5 right-5 sm:top-6 sm:right-6 text-xl md:hidden opacity-0 pointer-events-none transition-opacity duration-300 text-gray-400 hover:text-white z-50 mono" aria-label="Close menu">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none">
+                <path d="M2 2L22 22M22 2L2 22" stroke="currentColor" stroke-width="1.2" stroke-linecap="butt"/>
+            </svg>
+        </button>
+    </aside>
+
+    <!-- Cart Nav -->
+    <a href="cart.html" class="group fixed right-0 top-0 z-40 h-full flex justify-center items-center w-9" aria-label="View your shopping cart">
+        <div id="cart-content" class="flex gap-2 items-center justify-center text-xs uppercase tracking-wider mono text-white group-hover:text-gray-200 transition-colors duration-300 ease-in-out">
+            <div aria-hidden="true" class="h-12 w-px bg-gray-700 group-hover:bg-gray-300 transition-colors duration-300 ease-in-out"></div>
+            <span class="sr-only">Shopping Cart</span>
+            <span aria-hidden="true">Cart</span>
+            <div aria-hidden="true" class="h-12 w-px bg-gray-700 group-hover:bg-gray-300 transition-colors duration-300 ease-in-out"></div>
+            <span class="sr-only">Items in cart:</span><span id="cartCount" aria-live="polite">0</span>
+        </div>
+    </a>
+
+    <main id="main-content" role="main" class="max-w-4xl mx-auto pl-12 pr-10 text-gray-300 flex-grow min-h-screen">
+        <header class="pb-2 border-b border-gray-700">
+            <h1 class="text-3xl md:text-4xl pt-12 text-center font-bold uppercase title tracking-tight">Promos</h1>
+        </header>
+
+        <section class="mt-12 border border-gray-700 shadow-xl bg-black bg-opacity-90 backdrop-blur-sm">
+            <div class="p-4 sm:p-8 space-y-4 sm:space-y-6">
+                <!-- Future Collectors Period -->
+                <!-- <div class="flex flex-row justify-between">
+                    <div class="text-base sm:text-xl text-white">&#10033;</div>
+                    <div class="text-center">
+                        <h2 class="text-2xl sm:text-3xl uppercase mono tracking-widest text-white">Collectors Period</h2>
+                        <p class="uppercase tracking-wider text-sm text-gray-300 mt-2 mb-1 mono">31% Reserved. 31 Days Only.</p>
+                        <p class="text-xs text-gray-500 mono">Now Active — Ends Sept 16</p>
+                    </div>
+                    <div class="text-base sm:text-xl text-white">&#10033;</div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-black bg-opacity-80 border border-gray-800 px-6 py-4 carbon-text relative font-mono text-sm leading-relaxed overflow-hidden">
+                        <div class="data-content hidden whitespace-pre">Access Period:
+                        • Aug 16 → Sep 16, 2025
+                        • Active on all listed artifacts
+                        • No code required. No extensions.
+                        • Auto-closes at 00:00 on Sep 17
+                        </div>
+                    </div>
+
+                    <div class="bg-black bg-opacity-80 border border-gray-800 px-6 py-4 carbon-text relative font-mono text-sm leading-relaxed overflow-hidden">
+                        <div class="data-content hidden whitespace-pre">Collector Perk:
+                        • Free shipping on orders above RM150
+                        • Applies to all orders within Malaysia
+                        • Hand-packed and fully protected
+                        </div>
+                    </div>
+                </div> -->
+
+                <div class="flex flex-row justify-between">
+                    <div class="text-base sm:text-xl text-white">&#10033;</div>
+                    <div class="text-center">
+                        <h2 class="text-2xl sm:text-3xl uppercase mono tracking-normal sm:tracking-widest text-white carbon-text">
+                            <div class="data-content hidden">Launch Special</div>
+                        </h2>
+                        <a href="./shop/nocturnal-spirit-rx7" class="uppercase tracking-wider text-sm text-gray-300 mt-2 mb-1 mono hover:underline carbon-text">
+                            <div class="data-content hidden">The Nocturnal Spirit [RX-7]</div>
+                        </a>
+                        <p class="text-xs text-gray-500 mono carbon-text">
+                            <span class="data-content hidden">Live 16 Aug — 30 Aug 2025</span>
+                        </p>
+                    </div>
+                    <div class="text-base sm:text-xl text-white">&#10033;</div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
+                    <div class="bg-black bg-opacity-80 border border-gray-800 px-6 py-4 carbon-text relative font-mono text-xs sm:text-sm leading-relaxed overflow-hidden whitespace-pre-wrap">
+                        <div class="data-content hidden whitespace-pre">Access Period:
+                            • Only available for 2 weeks
+                            • Exclusive to The Nocturnal Spirit
+                            • Only 10 units available.
+                            • Ends 30 Aug 2025 at midnight
+                        </div>
+                    </div>
+
+                    <div class="bg-black bg-opacity-80 border border-gray-800 px-6 py-4 carbon-text relative font-mono text-xs sm:text-sm leading-relaxed overflow-hidden whitespace-pre-wrap">
+                        <div class="data-content hidden whitespace-pre">Launch Offer — 40% OFF:
+                            • Unframed: RM 148 → RM 88
+                            • Framed: RM 380 → RM 228
+                            • FREE shipping included
+                        </div>
+                    </div>
+                </div>
+
+                <p class="text-xs sm:text-sm text-gray-300 text-center mono">To celebrate DROP 001, we're giving our early supporters this exclusive launch price. Funds from this will be helped to build the Archive.</p>
+            </div>
+        </section>
+
+        <p class="mt-6 text-center text-gray-400 font-mono text-xs uppercase tracking-wide">
+            [ For more updates and exclusive sneak peeks, follow us on
+            <a href="https://instagram.com/the8tharchive" target="_blank" rel="noopener noreferrer" class="underline hover:text-white">Instagram</a>. ]
+        </p>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer role="contentinfo" aria-label="Footer navigation" class="text-center text-gray-600 text-xs py-12 mt-12 px-12 border-t border-gray-800 mono">
+        <p class="sr-only">Site footer with legal and contact links</p>
+        © The8thArchive — [Est. 2025] — All prints limited. All rights reserved. <br><br>
+        <a href="terms-of-service.html" class="underline-hover">Terms</a> &nbsp;|&nbsp;
+        <a href="privacy-policy.html" class="underline-hover">Privacy</a> &nbsp;|&nbsp;
+        <a href="promotions.html" class="underline-hover">Promotions</a> &nbsp;|&nbsp;
+        <a href="contact.html" class="underline-hover">Contact</a>
+    </footer>
+
+    <script>
+        // cart nav
+        const count = JSON.parse(localStorage.getItem("cart"))?.reduce((sum, item) => sum + item.quantity, 0) || 0;
+        document.getElementById("cartCount").textContent = count;
+        
+        function typeWithCopy(el) {
+            const contentEl = el.querySelector('.data-content');
+            if (!contentEl) return;
+
+            let text = contentEl.innerHTML
+                .replace(/&nbsp;/g, ' ')
+                .replace(/<br\s*\/?>/g, '\n')
+                .replace(/\r\n|\r/g, '\n')
+                .replace(/\n\s+/g, '\n');
+
+            // Clear the current text immediately so typing is visible from empty
+            el.textContent = '';
+
+            let i = 0;
+
+            function tick() {
+                if (i <= text.length) {
+                    el.textContent = text.slice(0, i);
+                    i++;
+                    setTimeout(tick, 30);
+                }
+            }
+            tick();
+        }
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                typeWithCopy(entry.target);
+                observer.unobserve(entry.target);
+                }
+            });
+            }, { threshold: 0.2 });
+
+            document.querySelectorAll('.carbon-text').forEach(el => {
+            observer.observe(el);
+        });
+
+    </script>
+</body>
+</html>

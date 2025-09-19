@@ -1,0 +1,52 @@
+[
+  {
+    "title": "The Nocturnal Spirit",
+    "car": "Mazda RX-7 (Spirit-R)",
+    "edition": "1 of 10",
+    "collection": null,
+    "status": "Active",
+    "release": "July 2025",
+    "img": "images/poster-nocturnal-spirit-rx7.webp",
+    "link": "./shop/nocturnal-spirit-rx7"
+  },
+  {
+    "title": "F488 Unleashed",
+    "car": "Ferrari 488 Pista",
+    "edition": "Open",
+    "collection": "Monochrome Series",
+    "status": "Active",
+    "release": "Sept 2025",
+    "img": "images/poster-f488-unleashed.webp",
+    "link": "./shop/f488-unleashed"
+  },
+  {
+    "title": "Escape the Shadows",
+    "car": "Porsche 911 992 GT3 Cup",
+    "edition": "1 of ?",
+    "collection": "Monochrome Series",
+    "status": "Coming Soon",
+    "release": "TBA",
+    "img": "images/poster-gt3-shadow.webp",
+    "link": "./shop/gt3-shadow"
+  },
+  {
+    "title": "YUGATA /// 012",
+    "car": "RWB Porsche 993",
+    "edition": "N/A",
+    "collection": "Monochrome Series",
+    "status": "Display Only",
+    "release": "N/A",
+    "img": "images/poster-yugata-rwb.webp",
+    "link": "./shop/yugata-rwb"
+  },
+  {
+    "title": "Meisterwerk M3",
+    "car": "BMW E30 M3 DTM (Group A)",
+    "edition": "1 of ?",
+    "collection": null,
+    "status": "Display Only",
+    "release": "TBA",
+    "img": "images/poster-meisterwerk-m3.webp",
+    "link": "./shop/meisterwerk-m3"
+  }
+]

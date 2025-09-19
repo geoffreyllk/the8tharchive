@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>The8thArchive</title>
+    <meta name="keywords" content="limited edition car posters, automotive prints, rare car artwork, collectible posters, 8thgear, the8tharchive, car wall art, poster archive, vintage car posters, art for car enthusiasts, numbered prints, no reprints" />
+    <meta name="description" content="Discover The8thArchive: Exclusive limited edition automotive posters. Each piece is numbered, finite, and designed to be owned. No reprints. No reruns. Explore the collection now.">
+    <meta name="theme-color" content="#000000" />
+
+    <link rel="canonical" href="https://the8tharchive.com.my/" />
+
+    <!-- Open Graph (link previews) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://the8tharchive.com.my/">
+    <meta property="og:title" content="The8thArchive">
+    <meta property="og:description" content="Exclusive numbered car posters - No reprints. No reruns. Permanent archive for collectors.">
+    <meta property="og:image" content="https://the8tharchive.com.my/images/og-thumbnail.webp">
+    <meta property="og:image:alt" content="The8thArchive">
+
+    <!-- Robots & Author -->
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="author" content="The8thArchive">
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon/dark/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" href="images/favicon/dark/favicon-32x32.png">
+
+    <link rel="icon" href="images/favicon/light/favicon.ico" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/png" href="images/favicon/light/favicon-32x32.png" media="(prefers-color-scheme: dark)">
+
+    <link rel="apple-touch-icon" href="images/favicon/dark/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <!-- Preloads -->
+    <link rel="preload" href="fonts/Eurostile-Extended.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/FiraCode-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/images/grain.avif" as="image">
+    <link rel="preload" href="/dist/style.css" as="style">
+    <link rel="preload" href="/dist/main.min.css" as="style">
+    
+    <style>
+        :root {--vh: 1vh;}
+        .hero {
+            height: 100vh;
+            height: calc(var(--vh, 1vh) * 100);
+            min-height: -webkit-fill-available;
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        @media (max-width: 450px) {#hero-title{font-size: 1.75rem;}}
+        @media (max-width: 380px) {#hero-title{font-size: 1.55rem;}}
+    </style>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/dist/main.min.css">
+    <link rel="stylesheet" href="/dist/style.css">
+    <noscript>
+        <link rel="stylesheet" href="/dist/main.min.css">
+        <link rel="stylesheet" href="/dist/style.css">
+    </noscript>
+
+    <!-- Script -->
+    <script src="dist/script.min.js" defer></script>
+
+    <style>
+        @media (max-width: 450px) {
+            #hero-title{
+                font-size: 1.75rem;
+            }
+            #promotions-text{
+                font-size: 0.65rem;
+            }
+            #archive{
+                font-size: 1.35rem;
+            }
+            #filterToggle{
+                font-size: 0.7rem;
+            }
+        }
+        @media (max-width: 380px) {
+            #hero-title{
+                font-size: 1.55rem;
+            }
+            #archive{
+                font-size: 1.15rem;
+            }
+            #filterToggle{
+                font-size: 0.6rem;
+            }
+        }
+        .scroll-offset {
+            scroll-margin-top: -20px;
+        }
+        .scroll-offset-sm {
+            scroll-margin-top: -30px;
+        }
+        .poster-img {
+            max-height: 78vh;
+            width: auto;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            object-fit: contain;
+        }
+        
+        .sort-btn,
+        .filter-btn {
+            border: 1px solid #4b5563;
+            padding: 0.4rem 0.8rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            background: transparent;
+            color: #9ca3af;
+            transition: all 0.5s ease;
+        }
+
+        .sort-btn:hover:not(.active),
+        .filter-btn:hover:not(.active) {
+            border-color: #d1d5db;
+            color: #f3f4f6;
+            opacity: 0.7;
+            transform: scale(0.98);
+        }
+
+        .sort-btn.active,
+        .filter-btn.active {
+            opacity: 1;
+            transform: scale(1);
+            border-color: white !important;
+            color: white !important;
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 1s ease-out forwards;
+            will-change: transform, opacity;
+        }
+
+        @keyframes fadeInOnly {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .animate-fadeInOnly {
+            animation: fadeInOnly 1s ease-out forwards;
+        }
+
+        .poster-img {
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.03);
+            filter: brightness(1.03) contrast(1.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .poster-img:hover {
+            transform: scale(1.01);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.06);
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main-content" class="sr-only focus:not-sr-only absolute flex justify-center bg-black text-white p-2 z-50">[ Skip to content ]</a>
+    
+    <!-- Menu Button -->
+    <button id="menuBtn" class="fixed top-0 left-0 h-full w-9 bg-black bg-opacity-50 border-r border-gray-700 hover:border-white transition-all duration-500 ease-in-out z-50 group mono animate-fadeInRight opacity-0" style="animation-delay: 0.4s; animation-fill-mode: both;" 
+        aria-controls="sidebar" aria-expanded="false" aria-label="Open main menu" type="button">
+        <span style="text-shadow: 0 0 1px black, 0 0 1px black;"class="absolute left-0 top-1/2 transform -rotate-90 uppercase tracking-widest text-sm text-white hover:text-gray-300 transition-colors">
+            Menu
+        </span>
+    </button>
+    <!-- Sidebar Navbar --> 
+    <aside id="sidebar" class="fixed top-0 left-0 h-full w-0 bg-black bg-opacity-90 border-gray-700 md:hover:border-white overflow-hidden transition-all duration-500 ease-in-out z-50" role="navigation" aria-label="Site menu" inert>
+        <nav class="flex flex-col justify-center items-center text-center h-full px-6 space-y-6" aria-label="Main navigation">
+            <h2 class="sr-only">Main Site Navigation</h2>
+            <a href="index.html" class="nav-item block text-lg uppercase text-gray-400 hover:text-white transition-all opacity-0 -translate-x-5 mono" aria-current="page">Archive</a>
+            <a href="about.html" class="nav-item block text-lg uppercase text-gray-400 hover:text-white transition-all opacity-0 -translate-x-5 mono">About</a>
+            <a href="collections.html" class="nav-item block text-lg uppercase text-gray-400 hover:text-white transition-all opacity-0 -translate-x-5 mono">Collections</a>
+            <a href="cart.html" class="nav-item block text-lg uppercase text-gray-400 hover:text-white transition-all opacity-0 -translate-x-5 mono">Cart</a>
+        </nav>
+        <button id="closeBtn" class="absolute top-5 right-5 sm:top-6 sm:right-6 text-xl md:hidden opacity-0 pointer-events-none transition-opacity duration-300 text-gray-400 hover:text-white z-50 mono" aria-label="Close menu">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none">
+                <path d="M2 2L22 22M22 2L2 22" stroke="currentColor" stroke-width="1.2" stroke-linecap="butt"/>
+            </svg>
+        </button>
+    </aside>
+
+    <!-- Cart Nav -->
+    <a href="cart.html" class="group fixed right-0 top-0 z-40 h-full flex justify-center items-center w-9" aria-label="View your shopping cart">
+        <div id="cart-content" class="flex gap-2 items-center justify-center text-xs uppercase tracking-wider mono text-white group-hover:text-gray-200 transition-colors duration-300 ease-in-out">
+            <div aria-hidden="true" class="h-12 w-px bg-gray-700 group-hover:bg-gray-300 transition-colors duration-300 ease-in-out"></div>
+            <span class="sr-only">Shopping Cart</span>
+            <span aria-hidden="true">Cart</span>
+            <div aria-hidden="true" class="h-12 w-px bg-gray-700 group-hover:bg-gray-300 transition-colors duration-300 ease-in-out"></div>
+            <span class="sr-only">Items in cart:</span><span id="cartCount" aria-live="polite">0</span>
+        </div>
+    </a>
+
+    <main id="main-content" role="main">
+        <!-- Hero Section -->
+        <section class="hero flex items-center justify-center text-center px-4 ml-2">
+            <header>
+                <h1 id="hero-title" class="text-4xl sm:text-5xl md:text-6xl tracking-wide title animate-fadeInUp opacity-0" style="animation-delay: 0.2s; animation-fill-mode: both;">
+                    &nbsp;The8thArchive<sup>™</sup>
+                </h1>
+                <p class="mt-1 sm:mt-3 md:mt-4 text-xs sm:text-sm md:text-base mono text-gray-400 animate-fadeInOnly" style="animation-delay: 0.5s; animation-fill-mode: both;">
+                    Drop 01 — The Nocturnal Spirit
+                </p>
+                <p class="mt-1 sm:mt-2 md:mt-2 text-xs sm:text-sm md:text-base text-gray-500 italic animate-fadeInOnly" style="animation-delay: 0.8s; animation-fill-mode: both;">
+                    "Every print carries weight. No reprints. No reruns."
+                </p>
+                <a href="#archive" id="enterArchiveBtn" class="inline-block mt-4 sm:mt-5 md:mt-6 px-4 sm:px-5 md:px-6 py-1.5 sm:py-1.5 md:py-2 border border-gray-600 hover:border-white transition uppercase text-xs sm:text-sm md:text-base mono animate-fadeInOnly" style="animation-delay: 1.1s; animation-fill-mode: both;">
+                    Enter Archive
+                </a>
+            </header>
+        </section>
+        
+        <!-- promotions -->
+        <div id="promo-sentinel" class="w-full h-px"></div>
+        <a id="promo-link" href="promotions.html" class="sm:sticky top-0 z-30 flex justify-center items-center gap-2 bg-black bg-opacity-70 text-gray-200 text-center text-xs sm:text-sm tracking-widest py-2 px-12 sm:px-16 transition-colors duration-200" style="background-color: #0f0f0f;" aria-label="Limited Time Sale — 31 days, 31% off all orders">
+            <span>&#10033;</span>
+            <p class="hover:underline m-0">Launch Special — 40% OFF The Nocturnal Spirit</p>
+            <span>&#10033;</span>
+        </a>
+
+        <!-- Poster Archive Section -->
+        <section id="archive" class="px-3 py-12 sm:px-6 sm:py-16 max-w-6xl mx-auto scroll-offset sm:scroll-offset-sm">
+            <div class="border-b border-gray-700 ml-12 mr-8 md:mx-4">
+                <div class="grid grid-cols-3 items-end pb-3 z-40">
+                    <div></div>
+                    <div class="text-center">
+                        <h2 aria-labelledby="archive-heading" class="text-2xl md:text-3xl font-semibold uppercase leading-none">Archive</h2>
+                    </div>
+                    <div class="flex justify-end">
+                        <button id="filterToggle" class="flex items-center gap-1 text-xs md:text-sm uppercase text-gray-400 hover:text-white transition mono">
+                            Filter
+                            <svg id="filterArrow" xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 sm:h-4 sm:w-4 transition-transform duration-300 transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Filter drawer -->
+                <div id="filterDrawer" class="overflow-hidden transition-all duration-500 ease-in-out max-h-0" aria-expanded="false" aria-controls="filterDrawer" aria-label="Toggle poster filter">
+                    <div id="drawerInner" class="opacity-0 translate-y-2 transition-all duration-500 ease-in-out delay-150 p-6 bg-black bg-opacity-90">
+                        <div class="flex justify-end gap-4 items-center">
+                            <div class="w-full space-y-6">
+                                <div>
+                                    <h3 class="text-sm uppercase text-gray-500 mb-2 mono" id="sortLabel">Sort By</h3>
+                                    <div class="flex flex-wrap gap-3 mono" role="group" aria-labelledby="sortLabel">
+                                        <button class="sort-btn text-xs px-3 py-1 border border-gray-600 hover:border-white uppercase text-gray-400 hover:text-white mono focusable-filter active"
+                                        data-sort="latest" aria-pressed="true" aria-label="Sort by latest">Latest
+                                        </button>
+                                        <button class="sort-btn text-xs px-3 py-1 border border-gray-600 hover:border-white uppercase text-gray-400 hover:text-white mono focusable-filter"
+                                            data-sort="oldest" aria-pressed="false" aria-label="Sort by oldest">Oldest
+                                        </button>
+                                        <button class="sort-btn text-xs px-3 py-1 border border-gray-600 hover:border-white uppercase text-gray-400 hover:text-white mono focusable-filter"
+                                            data-sort="az" aria-pressed="false" aria-label="Sort from A to Z">A → Z
+                                        </button>
+                                        <button class="sort-btn text-xs px-3 py-1 border border-gray-600 hover:border-white uppercase text-gray-400 hover:text-white mono focusable-filter"
+                                            data-sort="za" aria-pressed="false" aria-label="Sort from Z to A">Z → A
+                                        </button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm uppercase text-gray-500 mb-2 mono" id="filterLabel">Filter Status</h3>
+                                    <div class="flex flex-wrap gap-3 mono" role="group" aria-labelledby="filterLabel">
+                                        <button class="filter-btn focusable-filter active"
+                                            data-status="all" aria-pressed="true" aria-label="Show all statuses">All
+                                        </button>
+                                        <button class="filter-btn focusable-filter"
+                                            data-status="active" aria-pressed="false" aria-label="Filter by active status">Active
+                                        </button>
+                                        <button class="filter-btn focusable-filter"
+                                            data-status="sold out" aria-pressed="false" aria-label="Filter by sold out status">Sold Out
+                                        </button>
+                                        <button class="filter-btn focusable-filter"
+                                            data-status="coming soon" aria-pressed="false" aria-label="Filter by coming soon status">Coming Soon
+                                        </button>
+                                        <button class="filter-btn focusable-filter"
+                                            data-status="display only" aria-pressed="false" aria-label="Filter by display only status">Display Only
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- ARIA Live Region -->
+                                <div class="sr-only" aria-live="polite" id="ariaStatusMessage"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="poster-container" class="space-y-10 md:space-y-16 mt-8 sm:mt-12 md:mt-10"></div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer role="contentinfo" aria-label="Footer navigation" class="text-center text-gray-600 text-xs py-12 mt-12 px-12 border-t border-gray-800 mono">
+        <p class="sr-only">Site footer with legal and contact links</p>
+        © The8thArchive — [Est. 2025] — All prints limited. All rights reserved. <br><br>
+        <a href="terms-of-service.html" class="underline-hover">Terms</a> &nbsp;|&nbsp;
+        <a href="privacy-policy.html" class="underline-hover">Privacy</a> &nbsp;|&nbsp;
+        <a href="promotions.html" class="underline-hover">Promotions</a> &nbsp;|&nbsp;
+        <a href="contact.html" class="underline-hover">Contact</a>
+    </footer>
+
+    <script>
+        // cart nav
+        const count = JSON.parse(localStorage.getItem("cart"))?.reduce((sum, item) => sum + item.quantity, 0) || 0;
+        document.getElementById("cartCount").textContent = count;
+
+        function setViewportHeight() {
+        const vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+        window.addEventListener('load', setViewportHeight);
+        window.addEventListener('resize', setViewportHeight);
+        window.addEventListener('orientationchange', setViewportHeight);
+
+        // sticky promotions toggle
+        const promoLink = document.getElementById('promo-link');
+        const promoSentinel = document.getElementById('promo-sentinel');
+
+        const promoObserver = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    promoLink.classList.add('border-t', 'border-b', 'border-gray-700', 'hover:border-gray-400');
+                    promoLink.classList.remove('bg-black');
+                    promoLink.style.backgroundColor = '#0f0f0f';
+
+                } else {
+                    promoLink.classList.remove('border-t', 'border-b', 'border-gray-700', 'hover:border-gray-400');
+                    promoLink.classList.add('bg-black');
+                    promoLink.style.backgroundColor = ''; 
+                }
+            },
+            {
+                root: null,
+                threshold: 0,
+            }
+        );
+
+        promoObserver.observe(promoSentinel);
+
+        // filter toggle
+        const filterToggle = document.getElementById('filterToggle');
+        const filterDrawer = document.getElementById('filterDrawer');
+        const drawerInner = document.getElementById('drawerInner');
+        let drawerOpen = false;
+
+        filterToggle.addEventListener('click', () => {
+            drawerOpen = !drawerOpen;
+            filterToggle.setAttribute('aria-expanded', drawerOpen.toString());
+
+            if (drawerOpen) {
+                const scrollHeight = drawerInner.scrollHeight;
+                filterDrawer.style.maxHeight = scrollHeight + 'px';
+                filterArrow.classList.add('rotate-180');
+                drawerInner.classList.remove('opacity-0', 'translate-y-2');
+                enableFilterFocus();
+            } else {
+                filterArrow.classList.remove('rotate-180');
+                drawerInner.classList.add('opacity-0', 'translate-y-2');
+                filterDrawer.style.maxHeight = drawerInner.scrollHeight + 'px';
+                setTimeout(() => {
+                    filterDrawer.style.maxHeight = '0px';
+                }, 100);
+            }
+        });
+
+        filterDrawer.addEventListener('transitionend', () => {
+            if (drawerOpen) {
+                filterDrawer.style.maxHeight = 'none';
+            }
+        });
+
+        const focusableFilterElements = document.querySelectorAll('.focusable-filter');
+
+        function disableFilterFocus() {
+            focusableFilterElements.forEach(el => {
+                el.setAttribute('tabindex', '-1');
+                el.setAttribute('aria-hidden', 'true');
+            });
+        }
+
+        function enableFilterFocus() {
+            focusableFilterElements.forEach(el => {
+                el.setAttribute('tabindex', '0');
+                el.removeAttribute('aria-hidden');
+            });
+        }
+
+        disableFilterFocus();
+
+        let originalPosters = [];
+        let currentSort = 'latest';
+        let activeFilters = new Set(['active', 'sold out', 'coming soon', 'display only']);
+
+        const sortButtons = document.querySelectorAll('.sort-btn');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const posterContainer = document.getElementById('poster-container');
+
+        const getStatusColor = status => ({
+            'active': 'text-green-400',
+            'sold out': 'text-red-400',
+            'coming soon': 'text-purple-400',
+            'display only': 'text-yellow-300',
+        }[status.toLowerCase()] || 'text-yellow-300');
+
+        function renderPoster(p, i, total) {
+            const desktopImg = p.img.replace("images/", "images/desktop/");
+            const mobileImg = p.img.replace("images/", "images/mobile/");
+
+            return `
+                <article class="${i === total - 1 ? '' : 'border-b border-gray-800'} mx-4 pb-10 sm:pb-22 sm:mb-22 opacity-0 translate-y-4 transition-all duration-500 ease-in-out animate-fadeInUp delay-[${i * 75}ms]" aria-labelledby="poster-title-${i}">
+                    <div class="flex flex-col md:flex-row justify-between gap-2 sm:gap-8 md:gap-12 ml-7 mr-4 sm:mx-10 items-stretch scroll-offset">
+                        <div class="flex justify-center w-full ${i % 2 ? 'md:order-2' : ''}">
+                            <picture>
+                                <source srcset="${mobileImg}" media="(max-width: 768px)" type="image/webp">
+                                <img src="${desktopImg}" alt="Limited edition poster titled '${p.title}' featuring ${p.car}" class="poster-img rounded-none border border-gray-700 shadow-md shadow-black/40" loading="lazy" decoding="async"/>
+                            </picture>
+                        </div>
+                        <div class="flex flex-col w-full space-y-6 justify-between text-gray-300 md:pl-0 ${i % 2 ? 'md:order-1' : ''}">
+                            <div class="space-y-1 hidden sm:block">
+                                <p class="text-xs uppercase tracking-tightest underline hover:line-through mono text-center text-gray-500">handle with care</p>
+                            </div>
+                            <div class="relative w-full text-white p-6 border border-gray-800 opacity-90 transition-all duration-300 ease-in-out cursor-default hover:border-gray-400 hover:opacity-100 group">
+                                <div class="pointer-events-none absolute top-0 left-0 w-2 h-2 border-t border-l border-gray-400" aria-hidden="true"></div>
+                                <div class="pointer-events-none absolute top-0 right-0 w-2 h-2 border-t border-r border-gray-400" aria-hidden="true"></div>
+                                <div class="pointer-events-none absolute bottom-0 left-0 w-2 h-2 border-b border-l border-gray-400" aria-hidden="true"></div>
+                                <div class="pointer-events-none absolute bottom-0 right-0 w-2 h-2 border-b border-r border-gray-400" aria-hidden="true"></div>
+                                <div class="space-y-1">
+                                    <h3 class="text-2xl md:text-3xl font-bold uppercase tracking-tight text-center text-white opacity-80 transition-opacity duration-300 group-hover:opacity-100">${p.title}</h3>
+                                    <p class="text-sm text-gray-400 uppercase text-center tracking-widest font-mono opacity-80 transition-opacity duration-300 group-hover:opacity-100">[ ${p.car} ]</p>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <dl class="text-sm space-y-2 text-gray-400">
+                                    <div class="flex justify-between">
+                                        <dt class="text-gray-500">EDITION:</dt>
+                                        <dd class="font-thin mono">${p.edition}</dd>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <dt class="${p.collection ? 'text-gray-500' : 'text-gray-700 line-through'}">COLLECTION:</dt>
+                                        <dd class="font-thin mono">${p.collection || '–'}</dd>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <dt class="text-gray-500">DROP STATUS:</dt>
+                                        <dd class="${getStatusColor(p.status)} font-thin mono">${p.status}</dd>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <dt class="text-gray-500">RELEASE:</dt>
+                                        <dd class="font-thin mono">${p.release}</dd>
+                                    </div>
+                                </dl>
+                                <div class="flex justify-end py-2 sm:py-4">
+                                    <a href="${p.link}" class="px-6 py-2 border border-gray-700 text-white hover:border-white hover:bg-white hover:text-black transition transition-all duration-300 ease-in-out uppercase text-sm font-mono tracking-wide"
+                                    aria-label="View details for poster ${p.title}">
+                                        View Artifact →
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            `;
+        }
+
+        function renderPosters(posters) {
+            posterContainer.innerHTML = posters.length
+                ? posters.map((p, i) => renderPoster(p, i, posters.length)).join('')
+                : `<div class="text-center text-gray-500 italic py-16 text-sm mono">No posters match the current filter.</div>`;
+        }
+
+        function applyFilters() {
+            const statusCounts = {
+                'active': 0,
+                'sold out': 0,
+                'coming soon': 0,
+                'display only': 0
+            };
+
+            originalPosters.forEach(p => {
+                const s = p.status.toLowerCase();
+                if (statusCounts[s] !== undefined) statusCounts[s]++;
+            });
+
+            filterButtons.forEach(btn => {
+                const status = btn.dataset.status.toLowerCase();
+                const isActive = activeFilters.has(status);
+
+                btn.classList.toggle('active',
+                    status === 'all'
+                        ? activeFilters.size === 4
+                        : isActive
+                );
+
+                btn.setAttribute('aria-pressed',
+                    status === 'all'
+                        ? (activeFilters.size === 4).toString()
+                        : isActive.toString()
+                );
+
+                if (status !== 'all') {
+                    const label = status
+                        .replace('sold out', 'Sold Out')
+                        .replace('coming soon', 'Coming Soon')
+                        .replace('display only', 'Display Only')
+                        .replace('active', 'Active');
+                    btn.textContent = `${label} – ${statusCounts[status] || 0}`;
+                } else {
+                    btn.textContent = 'All';
+                }
+            });
+
+            if (activeFilters.size === 0) return renderPosters([]);
+
+            let filtered = originalPosters.filter(p =>
+                activeFilters.has(p.status.toLowerCase())
+            );
+
+            filtered.sort((a, b) => {
+                const titleA = a.title.toLowerCase();
+                const titleB = b.title.toLowerCase();
+                const dateA = new Date(a.release);
+                const dateB = new Date(b.release);
+                switch (currentSort) {
+                    case 'az': return titleA.localeCompare(titleB);
+                    case 'za': return titleB.localeCompare(titleA);
+                    case 'oldest': return dateA - dateB;
+                    case 'latest': default: return dateB - dateA;
+                }
+            });
+
+            renderPosters(filtered);
+
+            // Update ARIA live region
+            const ariaStatus = document.getElementById('ariaStatusMessage');
+            ariaStatus.textContent = `Showing ${filtered.length} posters filtered by ${Array.from(activeFilters).join(', ')} and sorted by ${currentSort}`;
+        }
+
+        sortButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                currentSort = btn.dataset.sort;
+                sortButtons.forEach(b => {
+                    b.classList.remove('active');
+                    b.setAttribute('aria-pressed', 'false');
+                });
+                btn.classList.add('active');
+                btn.setAttribute('aria-pressed', 'true');
+                applyFilters();
+            });
+        });
+
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const status = btn.dataset.status.toLowerCase();
+                if (status === 'all') {
+                    activeFilters = activeFilters.size === 4
+                        ? new Set()
+                        : new Set(['active', 'sold out', 'coming soon', 'display only']);
+                } else {
+                    activeFilters.has(status)
+                        ? activeFilters.delete(status)
+                        : activeFilters.add(status);
+                }
+                applyFilters();
+            });
+        });
+
+        // Load JSON
+        fetch('posters.json')
+            .then(res => res.json())
+            .then(data => {
+                originalPosters = data;
+                applyFilters();
+            })
+            .catch(err => console.error('Failed to load poster data:', err));
+
+    </script>
+</body>
+</html>

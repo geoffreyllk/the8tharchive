@@ -1,0 +1,107 @@
+{
+  "nocturnal-spirit-rx7": {
+    "title": "The Nocturnal Spirit",
+    "car": "Mazda RX-7 (Spirit R)",
+    "description": "A hyperlime RX-7 FD3S, captured in full focus. Gloss carbon bonnet, half-raised pop-ups, vented hood and a race-ready stance. This isn’t just JDM royalty. It’s rotary defiance frozen in time. Powered by the iconic 13B twin-rotor, the RX-7 balances chaos and control beneath a body sculpted for speed and rebellion.",
+    "edition": 10,
+    "release": "August 2025",
+    "stock": 8,
+    "status": "active",
+    "promo": "Launch Special — 40% OFF The Nocturnal Spirit",
+    "price": {
+      "unframed": { "original": 148, "discount": { "type": "percent", "value": 40 } },
+      "framed": { "original": 380, "discount": { "type": "percent", "value": 40 } }
+    },
+    "images": [
+      { "src": "assets/nocturnal-spirit-rx7/mockup1.webp", "alt": "Framed Nocturnal Spirit RX-7 print on wall" },
+      { "src": "assets/nocturnal-spirit-rx7/mockup2.webp", "alt": "Close-up of unframed RE:Volution RX-7 print slightly rolled" },
+      { "src": "assets/nocturnal-spirit-rx7/mockup3.webp", "alt": "Nocutnal Spirit RX-7 print laid flat with kraft tube beside it" }
+    ],
+    "img": "images/poster-nocturnal-spirit-rx7.webp",
+    "keywords": ["Mazda RX-7", "RX-7 FD3S", "Spirit R", "rotary", "13B twin-rotor", "JDM", "hyperlime", "limited edition poster", "automotive art", "car poster", "collector"]
+  },
+  "f488-unleashed": {
+    "title": "F488 Unleashed",
+    "car": "Ferrari 488 Pista",
+    "description": "Back in 2018, Ferrari took the already outrageous 488 GTB and fine-tuned it into the 488 Pista. The name means ‘Track’ in Italian, and that’s exactly where this mid-engine monster belongs. More power. Less weight. Aero pulled straight from Formula 1. It wasn’t just some flashy, cash-grab, limited edition, it was Ferrari showing off what their mid-engined V8 could really do. That’s the Pista. 720 horses caged right behind your head, launching you to 100 km/h in under 3 seconds. 2.85, to be exact. The kind of acceleration that pins you to your seat and leaves you hanging on for dear life.<br><br>Seven years later, the Pista feels even more special. Today’s Ferrari’s are fast, no doubt, but with hybrid systems and sound filters, they don’t hit or feel the same. Back then there was flair, elegance, and a sense of real status – something you just don’t find anymore. Maybe some will call it nostalgia, but it's more than that. You can measure speed, but you can never measure feeling.<br><br>This particular Pista, finished in what I believe is Rosso Corsa, immediately caught my eye as I walked through the streets of Mont Kiara. Pista’s might not sit in that ultra-rare class, but when it looks this good, how can you not stop and appreciate it? What made the moment even more special was its backdrop of three to four story cement walls. The stark contrast between the Ferrari’s striking red and the muted monochrome structures only amplified its presence.",
+    "edition": 0,
+    "release": "September 2025",
+    "stock": 999,
+    "status": "active",
+    "promo": "F488 Unleashed - RM40 OFF Framed Posters",
+    "price": {
+      "unframed": { "original": 88, "discount": null },
+      "framed": { "original": 228, "discount": { "type": "fixed", "value": 40 } }
+    },
+    "images": [
+      { "src": "assets/f488-unleashed/mockup1.webp", "alt": "Framed F488 Unleashed print on wall" },
+      { "src": "assets/f488-unleashed/mockup2.webp", "alt": "Close-up of unframed F488 Unleashed print slightly rolled" },
+      { "src": "assets/f488-unleashed/mockup3.webp", "alt": "F488 Unleashed print laid flat with kraft tube beside it" }
+    ],
+    "img": "images/poster-f488-unleashed.webp",
+    "keywords": ["Ferrari 488 Pista", "Ferrari", "488 Pista", "supercar", "track car", "Italian sports car", "limited edition poster", "automotive art", "car poster"]
+  },
+  "gt3-shadow": {
+    "title": "Escape the Shadows",
+    "car": "Porsche 911 992 GT3 Cup",
+    "description": "This isn't your weekend 911. No carpet. No screens. Just noise, revs, and that long, long gear pull that makes you forget which planet you're on. It doesn't want to be on the road — and that’s the point.",
+    "edition": null,
+    "release": "September 2025",
+    "stock": null,
+    "status": "coming-soon",
+    "promo": null,
+    "price": {
+      "unframed": { "original": null, "discount": null },
+      "framed": { "original": null, "discount": null }
+    },
+    "images": [
+      { "src": "assets/gt3-shadow/mockup1.webp", "alt": "Framed Escape the Shadows print on wall" },
+      { "src": "assets/gt3-shadow/mockup2.webp", "alt": "Close-up of unframed Escape the Shadows print slightly rolled" },
+      { "src": "assets/gt3-shadow/mockup3.webp", "alt": "Escape the Shadows print laid flat with kraft tube beside it" }
+    ],
+    "img": "images/poster-gt3-shadow.webp",
+    "keywords": ["Porsche 911", "992 GT3 Cup", "Porsche GT3", "track car", "racing poster", "motorsport", "limited edition poster", "automotive art", "car poster"]
+  },
+  "yugata-rwb": {
+    "title": "YUGATA /// 012",
+    "car": "RWB Porsche 993 Widebody (Onecorsa 'Yugata')",
+    "description": "Built by the legend himself, Nakai-san. The 12th RWB in Malaysia - a Porsche 993 Targa in Carmine Red, handcrafted in collaboration with One Corsa. “Yugata” blends raw street presence with a deep respect for Japanese tuning style. Wide, low, and proudly different.",
+    "edition": null,
+    "release": "TBD",
+    "stock": null,
+    "status": "display-only",
+    "promo": null,
+    "price": {
+      "unframed": { "original": null, "discount": null },
+      "framed": { "original": null, "discount": null }
+    },
+    "images": [
+      { "src": "assets/yugata-rwb/mockup1.webp", "alt": "Framed YUGATA /// 012 print on wall" },
+      { "src": "assets/yugata-rwb/mockup2.webp", "alt": "Close-up of unframed YUGATA /// 012 print slightly rolled" },
+      { "src": "assets/yugata-rwb/mockup3.webp", "alt": "YUGATA /// 012 print laid flat with kraft tube beside it" }
+    ],
+    "img": "images/poster-yugata-rwb.webp",
+    "keywords": ["RWB", "Porsche 993", "Nakai-san", "widebody", "One Corsa", "Yugata", "RWB Malaysia", "limited edition poster", "automotive art", "car culture"]
+  },
+  "meisterwerk-m3": {
+    "title": "Meisterwerk M3",
+    "car": "BMW E30 M3 DTM (Group A)",
+    "description": "Built to rip through corners, not polish showroom floors. The E30 DTM is the purest form of boxy aggression — no traction control, no fluff, just revs and rage.",
+    "edition": null,
+    "release": "July 2025",
+    "stock": null,
+    "status": "display-only",
+    "promo": null,
+    "price": {
+      "unframed": { "original": null, "discount": null },
+      "framed": { "original": null, "discount": null }
+    },
+    "images": [
+      { "src": "assets/meisterwerk-m3/mockup1.webp", "alt": "Framed Meisterwerk M3 print on wall" },
+      { "src": "assets/meisterwerk-m3/mockup2.webp", "alt": "Close-up of unframed Meisterwerk M3 print slightly rolled" },
+      { "src": "assets/meisterwerk-m3/mockup3.webp", "alt": "Meisterwerk M3 print laid flat with kraft tube beside it" }
+    ],
+    "img": "images/poster-meisterwerk-m3.webp",
+    "keywords": ["BMW E30 M3", "E30", "M3 DTM", "Group A", "classic BMW", "motorsport poster", "limited edition poster", "automotive art", "car poster"]
+  }
+}
