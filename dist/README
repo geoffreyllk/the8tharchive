@@ -15,22 +15,12 @@ npm run minify:main
 # Full production build
 npm run build
 
+#to commit files via git
+git add .
+git commit -m "edit .gitignore"
 
-<!-- tailwind config.js safelist -->
-safelist: [
-    'w-full', 'md:w-64', 'w-0', 'md:w-0', 'w-auto', 'sm:w-1/2', 'sm:w-2', 'w-4', 'h-4', 'h-auto', 'sm:h-auto',
-    'p-2', 'p-0', 'pl-4', 'sm:p-4', 'py-2', 'sm:py-4', 'px-2', 'sm:px-3', 'gap-2', 'sm:gap-3', 'gap-1',
-    'border-b', 'border-gray-700', 'hover:border-gray-400', 'border-white', 'border-gray-600', 'border-r', 'border-l',
-    'bg-black',
-    'text-white', 'text-gray-200', 'text-gray-400', 'text-gray-500', 'text-gray-600', 'text-black', 'text-red-500', 'text-green-400',
-    'text-sm', 'text-xs', 'text-lg', 'text-base', 'text-right', 'text-center', 'font-semibold', 'font-bold', 'uppercase', 'capitalize',
-    'line-through', 'underline', 'tracking-tightest', 'tracking-normal',
-    'hover:text-black', 'hover:text-gray-300', 'hover:bg-white', 'hover:border-white', 'hover:underline', 'cursor-not-allowed', 'pointer-events-none',
-    'flex', 'flex-col', 'flex-row', 'sm:flex-row', 'justify-between', 'justify-center', 'items-center', 'shrink-0', 'grid', 'grid-cols-5',
-    'sm:grid-cols-11', 'col-start-1', 'col-end-4', 'sm:col-end-9', 'sm:col-start-9', 'sm:col-end-12',
-    'left-0', 'left-full', 'md:left-64', 'relative', 'absolute',
-    'opacity-0', 'opacity-80', 'hidden',
-    'transition-all', 'duration-200', 'duration-700', 'duration-300', 'ease-in-out', 'ease-out',
-    'translate-x-5', '-translate-x-5',
-    'show', 'hide', 'active', 'active-2', 'clicked', 'mono',
-]
+#push git
+git push
+
+#run locally
+netlify dev
