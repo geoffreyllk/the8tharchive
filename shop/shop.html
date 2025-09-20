@@ -463,13 +463,13 @@
                 if (discount.type === "percent" && typeof discount.value === "number") {
                     const pct = discount.value;
                     const final = Math.max(0, Math.floor(original * (100 - pct) / 100));
-                    const promoText = `⚡ ${pct}% OFF`;
+                    const promoText = `⚡${pct}% OFF`;
                     return { hasPrice: true, original, final, hasPromo: true, promoText, discountMeta: { type: "percent", value: pct } };
                 }
                 if (discount.type === "fixed" && typeof discount.value === "number") {
                     const off = Number(discount.value);
                     const final = Math.max(0, Math.floor(original - off));
-                    const promoText = `⚡ RM${off} OFF`;
+                    const promoText = `⚡RM${off} OFF`;
                     return { hasPrice: true, original, final, hasPromo: true, promoText, discountMeta: { type: "fixed", value: off } };
                 }
                 // fallback
@@ -495,17 +495,17 @@
                     // Promo sentinel logic:
                     // priority: poster.promo (explicit string) > computed promo from discount > hidden
                     if (poster.promo) {
-                    promoLink.classList.remove("hidden");
-                    promoLink.href = `../promotions.html?ref=${encodeURIComponent(posterId)}`;
-                    promoLink.setAttribute("aria-label", poster.promo);
-                    promoLink.innerHTML = `<span>★</span><p class="hover:underline m-0">${poster.promo}</p><span>★</span>`;
+                        promoLink.classList.remove("hidden");
+                        promoLink.href = `../promotions.html?ref=${encodeURIComponent(posterId)}`;
+                        promoLink.setAttribute("aria-label", poster.promo);
+                        promoLink.innerHTML = `<span>&#10033;</span><p class="hover:underline m-0">${poster.promo}</p><span>&#10033;</span>`;
                     } else if (p.hasPromo) {
-                    promoLink.classList.remove("hidden");
-                    promoLink.href = `../promotions.html?ref=${encodeURIComponent(posterId)}`;
-                    promoLink.setAttribute("aria-label", p.promoText);
-                    promoLink.innerHTML = `<span>★</span><p class="hover:underline m-0">${p.promoText}</p><span>★</span>`;
+                        promoLink.classList.remove("hidden");
+                        promoLink.href = `../promotions.html?ref=${encodeURIComponent(posterId)}`;
+                        promoLink.setAttribute("aria-label", p.promoText);
+                        promoLink.innerHTML = `<span>&#10033;</span><p class="hover:underline m-0">${p.promoText}</p><span>&#10033;</span>`;
                     } else {
-                    promoLink.classList.add("hidden");
+                        promoLink.classList.add("hidden");
                     }
 
                     // Price rendering
