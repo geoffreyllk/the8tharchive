@@ -44,15 +44,15 @@
   "gt3-shadow": {
     "title": "Escape the Shadows",
     "car": "Porsche 911 992 GT3 Cup",
-    "description": "This isn't your weekend 911. No carpet. No screens. Just noise, revs, and that long, long gear pull that makes you forget which planet you're on. It doesn't want to be on the road — and that’s the point.",
-    "edition": null,
-    "release": "September 2025",
-    "stock": null,
-    "status": "coming-soon",
-    "promo": null,
+    "description": "There’s nothing more haunting than a Porsche stripped of its luxury and filled with nothing but purpose. <br> But what happens when you put them wheel to wheel? That’s the Porsche Carrera Cup Asia. 26 top drivers from rookies to pros, fighting across six brutal circuits in identical GT3 Cups. Each one powered by a 4.0 litre flat-six pushing 510 horses and weighing just under 1300 kilograms. It’s loud, raw and built to dominate. And if you’re brave enough you could actually buy one straight from Porsche. One seat, no friends, no distractions, just you chasing 9000 RPMs. <br><br> Behind the wheel was Mathys Jaubert, a pro driver from France representing TORO Racing in Sepang where he secured his first ever win with TORO. Round 5. Heat shimmering off the tarmac, champagne in the air. His breakthrough weekend: two poles, three podiums and TORO back in the game.",
+    "edition": 10,
+    "release": "October 2025",
+    "stock": 10,
+    "status": "active",
+    "promo": "Escape the Shadows - RM40 OFF Framed Posters",
     "price": {
-      "unframed": { "original": null, "discount": null },
-      "framed": { "original": null, "discount": null }
+      "unframed": { "original": 88, "discount": null },
+      "framed": { "original": 228, "discount": { "type": "fixed", "value": 40 } }
     },
     "images": [
       { "src": "assets/gt3-shadow/mockup1.webp", "alt": "Framed Escape the Shadows print on wall" },
@@ -88,7 +88,7 @@
     "car": "BMW E30 M3 DTM (Group A)",
     "description": "Built to rip through corners, not polish showroom floors. The E30 DTM is the purest form of boxy aggression — no traction control, no fluff, just revs and rage.",
     "edition": null,
-    "release": "July 2025",
+    "release": "October 2025",
     "stock": null,
     "status": "display-only",
     "promo": null,

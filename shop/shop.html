@@ -195,11 +195,11 @@
         </div>
 
         <section class="relative overview">
-        <div class="slideshow shadow-lg relative">
-            <div class="slide-track" id="slideTrack"></div>
-            <div class="arrow-btn arrow-left" onclick="changeSlide(-1)">&#10094;</div>
-            <div class="arrow-btn arrow-right" onclick="changeSlide(1)">&#10095;</div>
-        </div>
+            <div class="slideshow shadow-lg relative">
+                <div class="slide-track" id="slideTrack"></div>
+                <div class="arrow-btn arrow-left" onclick="changeSlide(-1)">&#10094;</div>
+                <div class="arrow-btn arrow-right" onclick="changeSlide(1)">&#10095;</div>
+            </div>
         </section>
 
         <section class="mt-6 md:mt-8 space-y-16 specs">
@@ -566,14 +566,34 @@
 
             function setupSlideshow(images) {
                 const track = document.getElementById("slideTrack");
-                track.innerHTML = images.map(img => `<img src="${img.src}" alt="${img.alt}" onerror="this.src='assets/placeholder-404.webp';" />`).join("");
-                document.getElementById("slideCounter").textContent = `1 / ${images.length}`;
+                const slideshow = document.querySelector(".slideshow");
+                const counter = document.getElementById("slideCounter");
 
+                track.innerHTML = images
+                    .map(img => `<img src="${img.src}" alt="${img.alt}" onerror="this.src='assets/placeholder-404.webp';" />`)
+                    .join("");
+
+                let currentSlide = 0;
+                const totalSlides = images.length;
+
+                counter.textContent = `1 / ${totalSlides}`;
+                track.style.transform = `translateX(0%)`;
+
+                // Slide change logic
                 window.changeSlide = (dir) => {
-                    currentSlide = (currentSlide + dir + images.length) % images.length;
+                    currentSlide = (currentSlide + dir + totalSlides) % totalSlides;
                     track.style.transform = `translateX(-${currentSlide * 100}%)`;
-                    document.getElementById("slideCounter").textContent = `${currentSlide + 1} / ${images.length}`;
+                    counter.textContent = `${currentSlide + 1} / ${totalSlides}`;
                 };
+
+                // Auto slide
+                let autoSlide = setInterval(() => changeSlide(1), 5000);
+
+                // pause on hover
+                slideshow.addEventListener("mouseenter", () => clearInterval(autoSlide));
+                slideshow.addEventListener("mouseleave", () => {
+                    autoSlide = setInterval(() => changeSlide(1), 5000);
+                });
             }
 
             function updateMetaTags(poster) {
@@ -675,13 +695,13 @@
                         if (stock <= 0) {
                             specEls[5].textContent = "Sold Out";
                         } else if (stock <= 5) {
-                            specEls[5].textContent = `Only ${stock} left`;
+                            specEls[5].textContent = `Only ${stock} remaining`;
                         } else if (stock <= 20) {
-                            specEls[5].textContent = `${stock} in stock`;
+                            specEls[5].textContent = `Active`;
                         } else if (stock === 999) {
                             specEls[5].textContent = "In Stock";
                         } else {
-                            specEls[5].textContent = `${stock} available`;
+                            specEls[5].textContent = `Available`;
                         }
                     } else {
                         specEls[5].textContent = "N/A";
