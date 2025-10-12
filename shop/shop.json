@@ -66,14 +66,14 @@
     "title": "YUGATA /// 012",
     "car": "RWB Porsche 993 Widebody (Onecorsa 'Yugata')",
     "description": "Built by the legend himself, Nakai-san. The 12th RWB in Malaysia - a Porsche 993 Targa in Carmine Red, handcrafted in collaboration with One Corsa. “Yugata” blends raw street presence with a deep respect for Japanese tuning style. Wide, low, and proudly different.",
-    "edition": null,
-    "release": "TBD",
-    "stock": null,
+    "edition": 5,
+    "release": "October 2025",
+    "stock": 5,
     "status": "display-only",
-    "promo": null,
+    "promo": "Yugata /// 012 - RM40 OFF Framed Posters",
     "price": {
-      "unframed": { "original": null, "discount": null },
-      "framed": { "original": null, "discount": null }
+      "unframed": { "original": 88, "discount": null },
+      "framed": { "original": 228, "discount": { "type": "fixed", "value": 40 } }
     },
     "images": [
       { "src": "assets/yugata-rwb/mockup1.webp", "alt": "Framed YUGATA /// 012 print on wall" },
