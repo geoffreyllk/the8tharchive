@@ -63,13 +63,13 @@
     "keywords": ["Porsche 911", "992 GT3 Cup", "Porsche GT3", "track car", "racing poster", "motorsport", "limited edition poster", "automotive art", "car poster"]
   },
   "yugata-rwb": {
-    "title": "YUGATA /// 012",
-    "car": "RWB Porsche 993 Widebody (Onecorsa 'Yugata')",
-    "description": "Built by the legend himself, Nakai-san. The 12th RWB in Malaysia - a Porsche 993 Targa in Carmine Red, handcrafted in collaboration with One Corsa. “Yugata” blends raw street presence with a deep respect for Japanese tuning style. Wide, low, and proudly different.",
+    "title": "RWB YUGATA",
+    "car": "Porsche 993 Targa (RWB)",
+    "description": "You don’t need the golden hour when the car already looks like it. Named after dusk, the Yugata is the twelfth RWB built on Malaysian soil by the legend himself, Akira Nakai. <br> In June 2024, One Corsa came together with RWB Malaysia to reimagine the once-stock 993 Targa into what we see today. Finished in a deep Carmine Red, Yugata runs a set of OGW Fuchs-inspired rims, Moromito LED taillights and a fully custom interior that makes it truly bespoke, something synonymous with One Corsa’s attention to detail and craftsmanship.",
     "edition": 5,
     "release": "October 2025",
     "stock": 5,
-    "status": "display-only",
+    "status": "active",
     "promo": "Yugata /// 012 - RM40 OFF Framed Posters",
     "price": {
       "unframed": { "original": 88, "discount": null },
