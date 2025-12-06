@@ -538,7 +538,7 @@
                     .filter(item => item.id.startsWith(`${posterId}-`))
                     .reduce((sum, item) => sum + item.quantity, 0);
 
-                    const stockVal = (typeof poster.stock === "number") ? poster.stock : Infinity;
+                    const stockVal = (typeof poster.stock === "number") ? poster.stock : 10;
                     updateQtyControls(stockVal, inCart);
                 }
 
