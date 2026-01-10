@@ -4,7 +4,7 @@
   "description": "",
   "main": "script.js",
   "scripts": {
-    "minify:js": "terser script.js -o dist/script.min.js --compress --mangle && terser detect-touch.js -o dist/detect-touch.min.js --compress --mangle",
+    "minify:js": "terser script.js -o dist/script.min.js --compress --mangle && terser detect-touch.js -o dist/detect-touch.min.js --compress --mangle && terser index.js -o dist/index.min.js --compress --mangle && terser cart.js -o dist/cart.min.js --compress --mangle && terser shop/shop.js -o dist/shop.min.js --compress --mangle",
     "dev:css": "tailwindcss -i ./input.css -o ./dist/style.css --watch",
     "build:css": "tailwindcss -i ./input.css -o ./dist/style.css --minify",
     "minify:main": "cleancss -o ./dist/main.min.css ./main.css",
