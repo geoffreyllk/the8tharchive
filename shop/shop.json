@@ -83,6 +83,27 @@
     "img": "images/poster-yugata-rwb.webp",
     "keywords": ["RWB", "Porsche 993", "Nakai-san", "widebody", "One Corsa", "Yugata", "RWB Malaysia", "limited edition poster", "automotive art", "car culture"]
   },
+  "hanabi-rwb": {
+    "title": "RWB HANABI",
+    "car": "Porsche 993 Carrera 2 (RWB)",
+    "description": "Hanabi is the ninth RWB built in Malaysia. The name means “firework” in Japanese, a reference to its brief but striking presence when it first appeared. Built on a Porsche 993 Carrera 2, the car carries the defining traits of an RWB build. Wide arches shaped by hand form an aggressive stance that is unmistakably Akira Nakai’s work. This build was completed in late 2024 under RWB Kuala Lumpur in collaboration with Kuzig Glanz Detailing, alongside Malaysia’s tenth RWB, Kagayaki. Today, it rests at the owner’s car-inspired café, CARFE.",
+    "edition": 5,
+    "release": "February 2026",
+    "stock": 5,
+    "status": "active",
+    "promo": "Hanabi /// 009 - RM40 OFF Framed Posters",
+    "price": {
+      "unframed": { "original": 88, "discount": null },
+      "framed": { "original": 228, "discount": { "type": "fixed", "value": 40 } }
+    },
+    "images": [
+      { "src": "assets/hanabi-rwb/mockup1.webp", "alt": "Framed HANABI /// 009 print on wall" },
+      { "src": "assets/hanabi-rwb/mockup2.webp", "alt": "Close-up of unframed HANABI /// 009 print slightly rolled" },
+      { "src": "assets/hanabi-rwb/mockup3.webp", "alt": "HANABI /// 009 print laid flat with kraft tube beside it" }
+    ],
+    "img": "images/poster-hanabi-rwb.webp",
+    "keywords": ["RWB", "Porsche 993", "Nakai-san", "widebody", "Carfe", "Hanabi", "RWB Malaysia", "limited edition poster", "automotive art", "car culture"]
+  },
   "meisterwerk-m3": {
     "title": "Meisterwerk M3",
     "car": "BMW E30 M3 DTM",
