@@ -38,6 +38,7 @@ promoObserver.observe(promoSentinel);
 // filter toggle
 const filterToggle = document.getElementById('filterToggle');
 const filterDrawer = document.getElementById('filterDrawer');
+const filterArrow = document.getElementById('filterArrow'); 
 const drawerInner = document.getElementById('drawerInner');
 let drawerOpen = false;
 

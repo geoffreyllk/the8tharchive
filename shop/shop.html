@@ -58,7 +58,6 @@
                 margin-left: auto;
             }
         }
-        .poster-img { max-height: 100%; object-fit: cover; width: 100%; }
         .slideshow {
             display: flex; overflow: hidden; position: relative; width: 100%;
             max-height: 88vh; justify-items: center; align-items: center;
@@ -196,7 +195,7 @@
             <p id="slideCounter" class="mono text-sm sm:text-base md:text-lg whitespace-nowrap leading-none tracking-tightest sm:tracking-normal md:tracking-widest"></p>
         </div>
 
-        <section class="relative overview">
+        <section class="relative overview max-h-screen">
             <div class="slideshow shadow-lg relative">
                 <div class="slide-track" id="slideTrack"></div>
                 <div class="arrow-btn arrow-left" onclick="changeSlide(-1)">&#10094;</div>
@@ -247,14 +246,14 @@
                     </div>
                     <div>
                         <p class="uppercase text-xs text-gray-400 mb-1 mono">Details</p>
-                        <p id="frameDesc" class="text-xs text-gray-500 italic leading-relaxed">Rolled poster in kraft tube — ready to frame or pin.</p>
+                        <p id="frameDesc" class="text-xs text-gray-500 italic leading-relaxed">Rolled A2 poster in kraft tube — ready to frame or pin.</p>
                     </div>
                     <div>
                         <p class="uppercase text-xs text-gray-400 mb-1 mono">Quantity</p>
                         <div class="qty-btn flex gap-3 items-center">
-                            <button class="mono border border-gray-700 px-3 text-xs">–</button>
+                            <button class="mono border border-gray-700 px-4 text-sm font-semibold hover:border-white">–</button>
                             <span class="mono text-white text-sm sm:text-base">1</span>
-                            <button class="mono border border-gray-700 px-3 text-xs">+</button>
+                            <button class="mono border border-gray-700 px-4 text-sm font-semibold hover:border-white">+</button>
                         </div>
                     </div>
                 </div>

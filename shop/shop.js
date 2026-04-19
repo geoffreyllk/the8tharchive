@@ -42,6 +42,32 @@ function showCartNotice(message = "Item added to cart") {
     }, 2000);
 }
 
+function computePrice(priceInfo) {
+    // returns { hasPrice, original, final, hasPromo, promoText, discountMeta }
+    if (!priceInfo || priceInfo.original == null) return { hasPrice: false };
+
+    const original = Number(priceInfo.original);
+    const discount = priceInfo.discount;
+
+    if (!discount) {
+        return { hasPrice: true, original, final: original, hasPromo: false, promoText: null, discountMeta: null };
+    }
+    if (discount.type === "percent" && typeof discount.value === "number") {
+        const pct = discount.value;
+        const final = Math.max(0, Math.floor(original * (100 - pct) / 100));
+        const promoText = `⚡${pct}% OFF`;
+        return { hasPrice: true, original, final, hasPromo: true, promoText, discountMeta: { type: "percent", value: pct } };
+    }
+    if (discount.type === "fixed" && typeof discount.value === "number") {
+        const off = Number(discount.value);
+        const final = Math.max(0, Math.floor(original - off));
+        const promoText = `⚡RM${off} OFF`;
+        return { hasPrice: true, original, final, hasPromo: true, promoText, discountMeta: { type: "fixed", value: off } };
+    }
+    // fallback
+    return { hasPrice: true, original, final: original, hasPromo: false, promoText: null, discountMeta: null };
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     const pathSegments = window.location.pathname.split('/');
     const posterId = pathSegments[pathSegments.length - 1];
@@ -71,20 +97,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    function enableHoverStyles() {
-        addToCartBtn.classList.add("hover:bg-white", "hover:text-black", "hover:border-white");
-
-        plusBtn.classList.add("hover:border-white");
-        minusBtn.classList.add("hover:border-white");
-    }
-
-    function disableHoverStyles() {
-        addToCartBtn.classList.remove("hover:bg-white", "hover:text-black", "hover:border-white");
-
-        plusBtn.classList.remove("hover:border-white");
-        minusBtn.classList.remove("hover:border-white");
-    }
-
     function disableAddToCartUI(statusText = "Sold Out") {
         addToCartBtn.disabled = true;
         addToCartBtn.textContent = statusText;
@@ -96,11 +108,8 @@ document.addEventListener("DOMContentLoaded", () => {
         minusBtn.disabled = true;
         minusBtn.classList.add("cursor-not-allowed", "border-gray-600", "text-gray-600");
 
-        disableHoverStyles();
-
         addToCartBtn.onclick = null;
     }
-
 
     function enableAddToCartUI() {
         addToCartBtn.disabled = false;
@@ -112,10 +121,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         minusBtn.disabled = false;
         minusBtn.classList.remove("cursor-not-allowed", "border-gray-600", "text-gray-600");
-
-        if (document.documentElement.classList.contains("no-touch")) {
-            enableHoverStyles();
-        }
     }
 
     function updateQtyButtonStates(qty, maxQty) {
@@ -170,37 +175,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    function computePrice(priceInfo) {
-        // returns { hasPrice, original, final, hasPromo, promoText, discountMeta }
-        if (!priceInfo || priceInfo.original == null) return { hasPrice: false };
-
-        const original = Number(priceInfo.original);
-        const discount = priceInfo.discount;
-
-        if (!discount) {
-            return { hasPrice: true, original, final: original, hasPromo: false, promoText: null, discountMeta: null };
-        }
-        if (discount.type === "percent" && typeof discount.value === "number") {
-            const pct = discount.value;
-            const final = Math.max(0, Math.floor(original * (100 - pct) / 100));
-            const promoText = `⚡${pct}% OFF`;
-            return { hasPrice: true, original, final, hasPromo: true, promoText, discountMeta: { type: "percent", value: pct } };
-        }
-        if (discount.type === "fixed" && typeof discount.value === "number") {
-            const off = Number(discount.value);
-            const final = Math.max(0, Math.floor(original - off));
-            const promoText = `⚡RM${off} OFF`;
-            return { hasPrice: true, original, final, hasPromo: true, promoText, discountMeta: { type: "fixed", value: off } };
-        }
-        // fallback
-        return { hasPrice: true, original, final: original, hasPromo: false, promoText: null, discountMeta: null };
-        }
-
     function updateFrameSection(poster) {
         const priceLabel = document.getElementById("priceLabel");
         const originalPrice = document.getElementById("originalPrice");
         const frameDesc = document.getElementById("frameDesc");
-        const promoLink = document.getElementById("promo-link");
         const discountLabel = document.getElementById("discount-label");
 
         function setFrame(option) {
@@ -248,7 +226,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             frameDesc.textContent = {
-            unframed: "Rolled poster in kraft tube — ready to frame or pin.",
+            unframed: "Rolled A2 poster in kraft tube — ready to frame or pin.",
             framed:   "Framed & sealed, ships flat in protective rigid box."
             }[option];
 
@@ -267,7 +245,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelectorAll(".frameOptionBtn").forEach(btn =>
             btn.addEventListener("click", () => setFrame(btn.dataset.option))
         );
-        }
+    }
 
     function updateQtyControls(stock, inCart) {
         const maxQty = stock - inCart;
