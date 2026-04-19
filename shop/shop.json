@@ -9,8 +9,8 @@
     "status": "active",
     "promo": "Launch Special — 40% OFF The Nocturnal Spirit",
     "price": {
-      "unframed": { "original": 148, "discount": { "type": "percent", "value": 40 } },
-      "framed": { "original": 380, "discount": { "type": "percent", "value": 40 } }
+      "unframed": { "original": 79, "discount": { "type": "percent", "value": 40 } },
+      "framed": { "original": 199, "discount": { "type": "percent", "value": 40 } }
     },
     "images": [
       { "src": "assets/nocturnal-spirit-rx7/mockup1.webp", "alt": "Framed Nocturnal Spirit RX-7 print on wall" },
@@ -28,10 +28,10 @@
     "release": "September 2025",
     "stock": 999,
     "status": "active",
-    "promo": "F488 Unleashed - RM40 OFF Framed Posters",
+    "promo": "Launch Special — 40% OFF",
     "price": {
-      "unframed": { "original": 88, "discount": null },
-      "framed": { "original": 228, "discount": { "type": "fixed", "value": 40 } }
+      "unframed": { "original": 79, "discount": { "type": "percent", "value": 40 } },
+      "framed": { "original": 199, "discount": { "type": "percent", "value": 40 } }
     },
     "images": [
       { "src": "assets/f488-unleashed/mockup1.webp", "alt": "Framed F488 Unleashed print on wall" },
@@ -49,10 +49,10 @@
     "release": "October 2025",
     "stock": 10,
     "status": "active",
-    "promo": "Escape the Shadows - RM40 OFF Framed Posters",
+    "promo": "Launch Special — 40% OFF",
     "price": {
-      "unframed": { "original": 88, "discount": null },
-      "framed": { "original": 228, "discount": { "type": "fixed", "value": 40 } }
+      "unframed": { "original": 79, "discount": { "type": "percent", "value": 40 } },
+      "framed": { "original": 199, "discount": { "type": "percent", "value": 40 } }
     },
     "images": [
       { "src": "assets/gt3-shadow/mockup1.webp", "alt": "Framed Escape the Shadows print on wall" },
@@ -70,10 +70,10 @@
     "release": "October 2025",
     "stock": 5,
     "status": "active",
-    "promo": "Yugata /// 012 - RM40 OFF Framed Posters",
+    "promo": "Launch Special — 40% OFF",
     "price": {
-      "unframed": { "original": 88, "discount": null },
-      "framed": { "original": 228, "discount": { "type": "fixed", "value": 40 } }
+      "unframed": { "original": 79, "discount": { "type": "percent", "value": 40 } },
+      "framed": { "original": 199, "discount": { "type": "percent", "value": 40 } }
     },
     "images": [
       { "src": "assets/yugata-rwb/mockup1.webp", "alt": "Framed YUGATA /// 012 print on wall" },
@@ -91,10 +91,10 @@
     "release": "February 2026",
     "stock": 5,
     "status": "active",
-    "promo": "Hanabi /// 009 - RM40 OFF Framed Posters",
+    "promo": "Launch Special — 40% OFF",
     "price": {
-      "unframed": { "original": 88, "discount": null },
-      "framed": { "original": 228, "discount": { "type": "fixed", "value": 40 } }
+      "unframed": { "original": 79, "discount": { "type": "percent", "value": 40 } },
+      "framed": { "original": 199, "discount": { "type": "percent", "value": 40 } }
     },
     "images": [
       { "src": "assets/hanabi-rwb/mockup1.webp", "alt": "Framed HANABI /// 009 print on wall" },
@@ -103,6 +103,27 @@
     ],
     "img": "images/poster-hanabi-rwb.webp",
     "keywords": ["RWB", "Porsche 993", "Nakai-san", "widebody", "Carfe", "Hanabi", "RWB Malaysia", "limited edition poster", "automotive art", "car culture"]
+  },
+  "miyabi-rwb": {
+    "title": "RWB Miyabi",
+    "car": "Porsche 964 Cabriolet (RWB)",
+    "description": "Over nearly a decade, “Miyabi” has blossomed into a cornerstone of the Malaysian automotive scene. Built in August 2015, it marked the first ever RWB to be forged on the streets of Kuala Lumpur, and cemented itself as the fifth RWB in Malaysia. The choice of a cabriolet was quite unconventional as most owners gravitated toward coupes for rigidity. However, along with its illuminating Riviera Blue exterior and contrasting black interior, this 964-gen Carrera Cabriolet has aged like fine wine into one of Malaysia’s most recognisable wide-bodies. As of now, Miyabi rests in Carfé along with RWB Hanabi and Kagayaki, regularly receiving the admiration it deserves. <br> <br>The name “Miyabi” signifies elegance and refinement, and unlike many of its RWB counterparts that scream aggression, this work of art wears its wide-body with finesse. From its understated aero ducktail to its literal ‘soft’ top, every detail feels intentional rather than excessive. Inside, it's all the driver with black Alcantara lined in red stitching, a Momo Propitopo steering wheel and Rennline pedals underfoot. For wheels, Miyabi rolls on a bespoke set of three-piece Work Meister M1s, featuring satin black centers and bare aluminium barrels. The owners who made this happen–Teoh, Kenneth and Zachary–were longtime RWB fans who even flew to Indonesia and Thailand to witness other builds before finally getting their turn. So more than a modified Porsche, Miyabi represents the moment Kuala Lumpur earned its place on the global RWB map and paved the way for nine more RWB’s to follow.",
+    "edition": 6,
+    "release": "Apr 2026",
+    "stock": 6,
+    "status": "active",
+    "promo": "Launch Special — 40% OFF",
+    "price": {
+      "unframed": { "original": 79, "discount": { "type": "percent", "value": 40 } },
+      "framed": { "original": 199, "discount": { "type": "percent", "value": 40 } }
+    },
+    "images": [
+      { "src": "assets/miyabi-rwb/mockup1.webp", "alt": "Framed Miyabi /// 005 print on wall" },
+      { "src": "assets/miyabi-rwb/mockup2.webp", "alt": "Close-up of unframed Miyabi /// 005 print slightly rolled" },
+      { "src": "assets/miyabi-rwb/mockup3.webp", "alt": "Miyabi /// 005 print laid flat with kraft tube beside it" }
+    ],
+    "img": "images/poster-miyabi-rwb.webp",
+    "keywords": ["RWB", "Porsche 993", "Nakai-san", "widebody", "Carfe", "Miyabi", "RWB Malaysia", "limited edition poster", "automotive art", "car culture"]
   },
   "meisterwerk-m3": {
     "title": "Meisterwerk M3",
