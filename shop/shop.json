@@ -126,17 +126,17 @@
     "keywords": ["RWB", "Porsche 993", "Nakai-san", "widebody", "Carfe", "Miyabi", "RWB Malaysia", "limited edition poster", "automotive art", "car culture"]
   },
   "meisterwerk-m3": {
-    "title": "Meisterwerk M3",
+    "title": "Wings of the 80s",
     "car": "BMW E30 M3 DTM",
-    "description": "Built to rip through corners, not polish showroom floors. The E30 DTM is the purest form of boxy aggression — no traction control, no fluff, just revs and rage.",
-    "edition": null,
-    "release": "October 2025",
-    "stock": null,
-    "status": "display-only",
-    "promo": null,
+    "description": "In the golden era of the 80s, the rules were simple: build 5,000 homologation road cars and the rest was up to you. That meant pure shithousery between the likes of Mercedes, BMW, Ford and whoever else had four doors with nothing to lose. Right in the middle of that beautiful chaos was the BMW E30 M3, a car that wasn’t the most powerful, the most expensive, or even the most extreme on the grid. So the engineers had to get a bit “creative”, like putting the fuel tank inches behind the driver’s head and calling it weight distribution, then deleting the ABS because who needs traction anyway. Then again, that’s easy to say when you have Roberto Ravaglia behind the wheel, the man who won it all in 1989 and brought Schnitzer their first ever DTM title.<br><br> Decades later, under all that legendary aura, the fuel tank is still in the back, the ABS is still missing, and nobody’s complaining about the “cheating” rear wing anymore. Which brings us to this replica displayed at BMW World 2025. Same red and blue stripes, same Warsteiner livery that won the 1989 championship. Calling it a “replica” doesn’t do it justice because this car wasn’t made just to be looked at. It has the same four-cylinder S14 engine – born from an M1 straight-six and a 14-day deadline, hence its name – and the desire to be driven on the track again. That’s exactly why it earned its place on our poster, “Wings of the 80s”.",
+    "edition": 10,
+    "release": "April 2026",
+    "stock": 10,
+    "status": "active",
+    "promo": "Launch Special — 40% OFF",
     "price": {
-      "unframed": { "original": null, "discount": null },
-      "framed": { "original": null, "discount": null }
+      "unframed": { "original": 79, "discount": { "type": "percent", "value": 40 } },
+      "framed": { "original": 199, "discount": { "type": "percent", "value": 40 } }
     },
     "images": [
       { "src": "assets/meisterwerk-m3/mockup1.webp", "alt": "Framed Meisterwerk M3 print on wall" },

@@ -60,12 +60,12 @@
     "link": "./shop/miyabi-rwb"
   },
   {
-    "title": "Meisterwerk M3",
+    "title": "Wings of the 80s",
     "car": "BMW E30 M3 DTM",
-    "edition": "1 of ?",
+    "edition": "1 of 10",
     "collection": null,
-    "status": "Display Only",
-    "release": "TBA",
+    "status": "Active",
+    "release": "Apr 2026",
     "img": "images/poster-meisterwerk-m3.webp",
     "link": "./shop/meisterwerk-m3"
   }
