@@ -1,6 +1,3 @@
-// cart nav
-const count = JSON.parse(localStorage.getItem("cart"))?.reduce((sum, item) => sum + item.quantity, 0) || 0;
-document.getElementById("cartCount").textContent = count;
 
 function setViewportHeight() {
 const vh = window.innerHeight * 0.01;
@@ -17,12 +14,12 @@ const promoSentinel = document.getElementById('promo-sentinel');
 const promoObserver = new IntersectionObserver(
     ([entry]) => {
         if (entry.isIntersecting) {
-            promoLink.classList.add('border-t', 'border-b', 'border-gray-700', 'hover:border-gray-400');
+            promoLink.classList.add('border-t', 'border-b', 'border-gray-700');
             promoLink.classList.remove('bg-black');
             promoLink.style.backgroundColor = '#0f0f0f';
 
         } else {
-            promoLink.classList.remove('border-t', 'border-b', 'border-gray-700', 'hover:border-gray-400');
+            promoLink.classList.remove('border-t', 'border-b', 'border-gray-700');
             promoLink.classList.add('bg-black');
             promoLink.style.backgroundColor = ''; 
         }
@@ -34,6 +31,26 @@ const promoObserver = new IntersectionObserver(
 );
 
 promoObserver.observe(promoSentinel);
+
+function updatePromoBanner(posters) {
+    const promoLink = document.getElementById('promo-link');
+    if (!promoLink) return;
+    
+    // Find the most recent poster (highest order number)
+    const mostRecent = posters.reduce((latest, current) => {
+        return (current.order || 0) > (latest.order || 0) ? current : latest;
+    }, { order: 0 });
+    
+    if (mostRecent.title) {
+        promoLink.href = mostRecent.link || '#';
+        promoLink.innerHTML = `
+            <span>&#10033;</span>
+            <p class="hover:underline m-0">New Arrival — ${mostRecent.title}</p>
+            <span>&#10033;</span>
+        `;
+        promoLink.classList.remove('hidden');
+    }
+}
 
 // filter toggle
 const filterToggle = document.getElementById('filterToggle');
@@ -118,7 +135,7 @@ function renderPoster(p, i, total) {
                     <div class="space-y-1 hidden sm:block">
                         <p class="text-xs uppercase tracking-tightest underline hover:line-through mono text-center text-gray-500 cursor-grab">handle with care</p>
                     </div>
-                    <div class="relative w-full text-white p-6 border border-gray-800 opacity-90 transition-all duration-300 ease-in-out cursor-default hover:border-gray-400 hover:opacity-100 group">
+                    <a href="${p.link}" class="relative w-full text-white p-6 border border-gray-800 opacity-90 transition-all duration-300 ease-in-out cursor-pointer hover:border-gray-400 hover:opacity-100 group">
                         <div class="pointer-events-none absolute top-0 left-0 w-2 h-2 border-t border-l border-gray-400" aria-hidden="true"></div>
                         <div class="pointer-events-none absolute top-0 right-0 w-2 h-2 border-t border-r border-gray-400" aria-hidden="true"></div>
                         <div class="pointer-events-none absolute bottom-0 left-0 w-2 h-2 border-b border-l border-gray-400" aria-hidden="true"></div>
@@ -127,8 +144,8 @@ function renderPoster(p, i, total) {
                             <h3 class="text-2xl md:text-3xl font-bold uppercase tracking-tight text-center text-white opacity-80 transition-opacity duration-300 group-hover:opacity-100">${p.title}</h3>
                             <p class="text-sm text-gray-400 uppercase text-center tracking-widest font-mono opacity-80 transition-opacity duration-300 group-hover:opacity-100">[ ${p.car} ]</p>
                         </div>
-                    </div>
-                    <div class="space-y-4">
+                    </a>
+                    <div class="hidden sm:block space-y-4">
                         <dl class="text-sm space-y-2 text-gray-400">
                             <div class="flex justify-between">
                                 <dt class="text-gray-500">EDITION:</dt>
@@ -147,7 +164,7 @@ function renderPoster(p, i, total) {
                                 <dd class="font-thin mono">${p.release}</dd>
                             </div>
                         </dl>
-                        <div class="flex justify-end py-2 sm:py-4">
+                        <div class="hidden sm:flex justify-end py-2 sm:py-4">
                             <a href="${p.link}" class="px-6 py-2 border border-gray-700 text-white hover:border-white hover:bg-white hover:text-black transition transition-all duration-300 ease-in-out uppercase text-sm font-mono tracking-wide"
                             aria-label="View details for poster ${p.title}">
                                 View Artifact →
@@ -214,15 +231,14 @@ function applyFilters() {
     );
 
     filtered.sort((a, b) => {
-        const titleA = a.title.toLowerCase();
-        const titleB = b.title.toLowerCase();
-        const dateA = new Date(a.release);
-        const dateB = new Date(b.release);
+    const titleA = a.title.toLowerCase();
+    const titleB = b.title.toLowerCase();
+    
         switch (currentSort) {
             case 'az': return titleA.localeCompare(titleB);
             case 'za': return titleB.localeCompare(titleA);
-            case 'oldest': return dateA - dateB;
-            case 'latest': default: return dateB - dateA;
+            case 'oldest': return (a.order || 0) - (b.order || 0);
+            case 'latest': default: return (b.order || 0) - (a.order || 0);
         }
     });
 
@@ -268,5 +284,6 @@ fetch('posters.json')
     .then(data => {
         originalPosters = data;
         applyFilters();
+        updatePromoBanner(data);
     })
     .catch(err => console.error('Failed to load poster data:', err));

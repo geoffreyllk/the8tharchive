@@ -34,6 +34,7 @@
     <link rel="preload" href="../dist/main.min.css" as="style">
     <link rel="preload" href="shop.json" as="fetch" crossorigin>
     
+    <script src="../dist/script.min.js" defer></script>
     <script src="../dist/shop.min.js" defer></script>
 
     <!-- Stylesheets -->
@@ -169,13 +170,14 @@
 <body class="shop-grain">
     <a href="#main-content" class="skip-to-content sr-only focus:not-sr-only absolute flex justify-center bg-black text-white p-2 z-50">[ Skip to content ]</a>
 
-    <!-- promotions -->
-    <div id="promo-sentinel" class="w-full h-px"></div>
-    <a id="promo-link" href="../promotions.html" class="hidden sm:sticky top-0 z-30 flex justify-center items-center gap-2 bg-black bg-opacity-70 text-gray-200 text-center text-xs sm:text-sm tracking-widest py-2 px-12 sm:px-16 transition-colors duration-200" style="background-color: #0f0f0f;" aria-label="Limited Time Sale — 31 days, 31% off all orders">
-        <span>&#10033;</span>
-        <p class="hover:underline m-0">Launch Special — 40% OFF The Nocturnal Spirit</p>
-        <span>&#10033;</span>
-    </a>
+    <div id="nav-sentinel" class="w-full h-px"></div>
+    <nav id="nav-link" class="flex flex-row justify-center items-center text-center w-full py-2 px-12 sm:px-16 gap-4 sm:gap-8 sticky top-0 z-30 bg-black bg-opacity-70" aria-label="Main navigation">
+        <h2 class="sr-only">Main Site Navigation</h2>
+        <a href="/index.html" class="nav-item block text-sm sm:text-base tracking-widest uppercase text-gray-300 hover:text-white transition-all mono" aria-current="page">Archive</a>
+        <a href="/about.html" class="nav-item block text-sm sm:text-base tracking-widest uppercase text-gray-300 hover:text-white transition-all mono">About</a>
+        <a href="/collections.html" class="nav-item block text-sm sm:text-base tracking-widest uppercase text-gray-300 hover:text-white transition-all mono">Collections</a>
+        <a href="/cart.html" id="cart-nav" class="hidden sm:block nav-item text-sm sm:text-base tracking-widest uppercase text-gray-300 hover:text-white transition-all mono">Cart</a>
+    </nav>
 
     <a href="../cart.html" class="group fixed right-0 top-0 z-40 h-full flex justify-center items-center w-9" aria-label="View your shopping cart">
         <div id="cart-content" class="flex gap-2 items-center justify-center text-xs uppercase tracking-wider mono text-white group-hover:text-gray-200 transition-colors duration-300 ease-in-out">
@@ -187,12 +189,12 @@
         </div>
     </a>
         
-    <main id="main-content" class="px-6 py-12 max-w-5xl">
+    <main id="main-content" class="px-6 py-6 mt-6 max-w-5xl">
         <div class="flex items-end justify-between text-lg text-gray-200 uppercase mb-4">
             <header>
-                <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold uppercase leading-none tracking-tightest sm:tracking-tight"></h1>
+                <h1 id="poster-title" class="text-2xl sm:text-3xl md:text-4xl font-bold uppercase leading-none tracking-tightest sm:tracking-tight"></h1>
             </header>
-            <p id="slideCounter" class="mono text-sm sm:text-base md:text-lg whitespace-nowrap leading-none tracking-tightest sm:tracking-normal md:tracking-widest"></p>
+            <p id="slideCounter" class="mono text-sm sm:text-base md:text-lg whitespace-nowrap leading-none tracking-tightest sm:tracking-normal md:tracking-wide"></p>
         </div>
 
         <section class="relative overview max-h-screen">
@@ -203,11 +205,11 @@
             </div>
         </section>
 
-        <section class="mt-6 md:mt-8 space-y-16 specs">
+        <section class="mt-6 md:mt-8 space-y-6 md:space-y-12 specs">
             <div class="md:col-span-2 space-y-4 sm:space-y-6">
                 <div>
                     <p id="limited-edition" class="uppercase text-yellow-500 text-sm font-semibold tracking-wide mb-1 sm:mb-2 mono" style="display: none;"><span id="editionInfo"></span></p>
-                    <h2 class="text-2xl font-semibold">Car Title</h2>
+                    <h2 id="car-title" class="text-2xl font-semibold">Car Title</h2>
                 </div>
 
                 <div class="border-l-2 border-gray-600 pl-4 text-gray-300 italic text-base leading-relaxed">
@@ -217,7 +219,7 @@
                     <button id="readMoreBtn" class="mt-2 hidden px-4 py-1 text-xs font-thin tracking-wide text-gray-400 border border-gray-500 hover:text-gray-300 hover:border-gray-300 uppercase mono">Read more</button>
                 </div>
 
-                <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 text-sm text-gray-400">
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 px-2 md:px-0 text-sm text-gray-400">
                     <div><p class="uppercase text-xs text-gray-500 mono">Size</p><p>A2 / 42 × 59.4 cm</p></div>
                     <div><p class="uppercase text-xs text-gray-500 mono">Print</p><p>Matte Fine Art (230gsm)</p></div>
                     <div><p class="uppercase text-xs text-gray-500 mono">Packaging</p><p>Kraft-wrapped, sealed tube</p></div>
@@ -232,7 +234,7 @@
                     <div>
                         <p class="uppercase text-xs text-gray-400 tracking-wide mono">Price</p>
                         <div class="flex items-center space-x-2 sm:space-x-3 pt-0 sm:pt-1">
-                            <span id="priceLabel" class="text-2xl font-semibold text-white tracking-tight">RM #</span>
+                            <span id="priceLabel" class="text-xl sm:text-2xl font-semibold text-white tracking-tight">RM #</span>
                             <span id="originalPrice" class="text-xs sm:text-sm text-gray-500 line-through tracking-wide hidden">RM #</span>
                             <a href="../promotions.html" id="discount-label" class="flex items-center py-0 text-xs text-gray-500 uppercase border border-gray-700 hover:text-gray-200 hover:border-gray-200 px-2 mono">⚡#% Off</a>
                         </div>
@@ -244,7 +246,7 @@
                             <button class="frameOptionBtn mono" data-option="framed">Framed</button>
                         </div>
                     </div>
-                    <div>
+                    <div class="hidden md:block">
                         <p class="uppercase text-xs text-gray-400 mb-1 mono">Details</p>
                         <p id="frameDesc" class="text-xs text-gray-500 italic leading-relaxed">Rolled A2 poster in kraft tube — ready to frame or pin.</p>
                     </div>
@@ -258,24 +260,16 @@
                     </div>
                 </div>
 
-                <button id="addToCartBtn" class="mono w-full text-center px-6 py-2 border border-gray-700 hover:border-white hover:bg-white hover:text-black text-white active:bg-transparent active:text-white transition duration-200 ease-in-out uppercase text-base font-bold tracking-wide">
+                <button id="addToCartBtn" class="mono w-full text-center px-6 py-2 border border-gray-700 hover:border-white hover:bg-white hover:text-black text-white active:bg-transparent active:text-white transition duration-200 ease-in-out uppercase text-base tracking-wide">
                     Add to Cart
                 </button>
             </div>
-            <a href="../index.html" class="text-sm text-gray-500 hover:text-white underline inline-block mono" aria-label="Back to Archive page">&larr; Back to Archive</a>
+            <!-- <a href="../index.html" class="text-sm text-gray-500 hover:text-white underline inline-block mono" aria-label="Back to Archive page">&larr; Back to Archive</a> -->
         </section>
 
         <div id="cartNotice" class="fixed text-gray-200 bg-black border border-gray-200 text-xs sm:text-sm text-center uppercase my-6 px-4 py-2 w-1/2 z-50 mono">Item added to cart</div>
     </main>
 
-    <!-- FOOTER -->
-    <footer role="contentinfo" aria-label="Footer navigation" class="text-center text-gray-600 text-xs py-12 mt-0 sm:mt-4 md:mt-8 px-12 border-t border-gray-800 mono">
-        <p class="sr-only">Site footer with legal and contact links</p>
-        © The8thArchive — [Est. 2025] — All prints limited. All rights reserved. <br><br>
-        <a href="../terms-of-service.html" class="underline-hover">Terms</a> &nbsp;|&nbsp;
-        <a href="../privacy-policy.html" class="underline-hover">Privacy</a> &nbsp;|&nbsp;
-        <a href="../promotions.html" class="underline-hover">Promotions</a> &nbsp;|&nbsp;
-        <a href="../contact.html" class="underline-hover">Contact</a>
-    </footer>
+    <div id="footer"></div>
 </body>
 </html>

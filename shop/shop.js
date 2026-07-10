@@ -1,18 +1,18 @@
-// sticky promotions toggle
-const promoLink = document.getElementById('promo-link');
-const promoSentinel = document.getElementById('promo-sentinel');
+// sticky nav toggle
+const navSentinel = document.getElementById('nav-sentinel');
+const navLink = document.getElementById('nav-link');
 
 const promoObserver = new IntersectionObserver(
     ([entry]) => {
         if (entry.isIntersecting) {
-            promoLink.classList.add('border-b', 'border-gray-700', 'hover:border-gray-400');
-            promoLink.classList.remove('bg-black');
-            promoLink.style.backgroundColor = '#0f0f0f';
+            navLink.classList.add('border-b', 'border-gray-700');
+            navLink.classList.remove('bg-black');
+            navLink.style.backgroundColor = '#0f0f0f';
 
         } else {
-            promoLink.classList.remove('border-b', 'border-gray-700', 'hover:border-gray-400');
-            promoLink.classList.add('bg-black');
-            promoLink.style.backgroundColor = ''; 
+            navLink.classList.remove('border-b', 'border-gray-700');
+            navLink.classList.add('bg-black');
+            navLink.style.backgroundColor = ''; 
         }
     },
     {
@@ -21,7 +21,7 @@ const promoObserver = new IntersectionObserver(
     }
 );
 
-promoObserver.observe(promoSentinel);
+promoObserver.observe(navSentinel);
 
 let cartNoticeTimeout;
 
@@ -87,8 +87,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const cart = JSON.parse(localStorage.getItem("cart")) || [];
         const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
         const cartContentEl = document.getElementById("cart-content");
+        const cartNav = document.getElementById("cart-nav");
 
         cartCountEl.textContent = totalItems;
+        cartNav.textContent = "Cart(" + totalItems + ")";
 
         if (cartContentEl) {
             cartContentEl.style.animation = "none";
@@ -189,22 +191,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const priceInfo = poster.price && poster.price[option] ? poster.price[option] : { original: null, discount: null };
             const p = computePrice(priceInfo);
-
-            // Promo sentinel logic:
-            // priority: poster.promo (explicit string) > computed promo from discount > hidden
-            if (poster.promo) {
-                promoLink.classList.remove("hidden");
-                promoLink.href = `../promotions.html?ref=${encodeURIComponent(posterId)}`;
-                promoLink.setAttribute("aria-label", poster.promo);
-                promoLink.innerHTML = `<span>&#10033;</span><p class="hover:underline m-0">${poster.promo}</p><span>&#10033;</span>`;
-            } else if (p.hasPromo) {
-                promoLink.classList.remove("hidden");
-                promoLink.href = `../promotions.html?ref=${encodeURIComponent(posterId)}`;
-                promoLink.setAttribute("aria-label", p.promoText);
-                promoLink.innerHTML = `<span>&#10033;</span><p class="hover:underline m-0">${p.promoText}</p><span>&#10033;</span>`;
-            } else {
-                promoLink.classList.add("hidden");
-            }
 
             // Price rendering
             if (!p.hasPrice) {
@@ -325,8 +311,8 @@ document.addEventListener("DOMContentLoaded", () => {
             const poster = data[posterId];
             if (!poster) return;
 
-            document.querySelector("h1").textContent = poster.title || "";
-            document.querySelector("h2").textContent = poster.car || "";
+            document.getElementById("poster-title").textContent = poster.title || "";
+            document.getElementById("car-title").textContent = poster.car || "";
             document.title = `${poster.title || "Shop"} — The8thArchive`;
 
             const posterDesc = document.getElementById("posterDesc");

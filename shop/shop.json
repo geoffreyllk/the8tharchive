@@ -7,10 +7,9 @@
     "release": "August 2025",
     "stock": 8,
     "status": "active",
-    "promo": "Launch Special — 40% OFF The Nocturnal Spirit",
     "price": {
-      "unframed": { "original": 79, "discount": { "type": "percent", "value": 40 } },
-      "framed": { "original": 199, "discount": { "type": "percent", "value": 40 } }
+      "unframed": { "original": 99, "discount": { "type": "percent", "value": 30 } }, 
+      "framed": { "original": 199, "discount": { "type": "percent", "value": 30 } }
     },
     "images": [
       { "src": "assets/nocturnal-spirit-rx7/mockup1.webp", "alt": "Framed Nocturnal Spirit RX-7 print on wall" },
@@ -28,10 +27,9 @@
     "release": "September 2025",
     "stock": 999,
     "status": "active",
-    "promo": "Launch Special — 40% OFF",
     "price": {
-      "unframed": { "original": 79, "discount": { "type": "percent", "value": 40 } },
-      "framed": { "original": 199, "discount": { "type": "percent", "value": 40 } }
+      "unframed": { "original": 99, "discount": { "type": "percent", "value": 30 } }, 
+      "framed": { "original": 199, "discount": { "type": "percent", "value": 30 } }
     },
     "images": [
       { "src": "assets/f488-unleashed/mockup1.webp", "alt": "Framed F488 Unleashed print on wall" },
@@ -49,10 +47,9 @@
     "release": "October 2025",
     "stock": 10,
     "status": "active",
-    "promo": "Launch Special — 40% OFF",
     "price": {
-      "unframed": { "original": 79, "discount": { "type": "percent", "value": 40 } },
-      "framed": { "original": 199, "discount": { "type": "percent", "value": 40 } }
+      "unframed": { "original": 99, "discount": { "type": "percent", "value": 30 } }, 
+     "framed": { "original": 199, "discount": { "type": "percent", "value": 30 } }
     },
     "images": [
       { "src": "assets/gt3-shadow/mockup1.webp", "alt": "Framed Escape the Shadows print on wall" },
@@ -70,10 +67,9 @@
     "release": "October 2025",
     "stock": 5,
     "status": "active",
-    "promo": "Launch Special — 40% OFF",
     "price": {
-      "unframed": { "original": 79, "discount": { "type": "percent", "value": 40 } },
-      "framed": { "original": 199, "discount": { "type": "percent", "value": 40 } }
+      "unframed": { "original": 99, "discount": { "type": "percent", "value": 30 } }, 
+      "framed": { "original": 199, "discount": { "type": "percent", "value": 30 } }
     },
     "images": [
       { "src": "assets/yugata-rwb/mockup1.webp", "alt": "Framed YUGATA /// 012 print on wall" },
@@ -91,10 +87,9 @@
     "release": "February 2026",
     "stock": 5,
     "status": "active",
-    "promo": "Launch Special — 40% OFF",
     "price": {
-      "unframed": { "original": 79, "discount": { "type": "percent", "value": 40 } },
-      "framed": { "original": 199, "discount": { "type": "percent", "value": 40 } }
+      "unframed": { "original": 99, "discount": { "type": "percent", "value": 30 } }, 
+      "framed": { "original": 199, "discount": { "type": "percent", "value": 30 } }
     },
     "images": [
       { "src": "assets/hanabi-rwb/mockup1.webp", "alt": "Framed HANABI /// 009 print on wall" },
@@ -112,10 +107,9 @@
     "release": "Apr 2026",
     "stock": 6,
     "status": "active",
-    "promo": "Launch Special — 40% OFF",
     "price": {
-      "unframed": { "original": 79, "discount": { "type": "percent", "value": 40 } },
-      "framed": { "original": 199, "discount": { "type": "percent", "value": 40 } }
+      "unframed": { "original": 99, "discount": { "type": "percent", "value": 30 } }, 
+      "framed": { "original": 199, "discount": { "type": "percent", "value": 30 } }
     },
     "images": [
       { "src": "assets/miyabi-rwb/mockup1.webp", "alt": "Framed Miyabi /// 005 print on wall" },
@@ -133,10 +127,9 @@
     "release": "April 2026",
     "stock": 10,
     "status": "active",
-    "promo": "Launch Special — 40% OFF",
     "price": {
-      "unframed": { "original": 79, "discount": { "type": "percent", "value": 40 } },
-      "framed": { "original": 199, "discount": { "type": "percent", "value": 40 } }
+      "unframed": { "original": 99, "discount": { "type": "percent", "value": 30 } }, 
+      "framed": { "original": 199, "discount": { "type": "percent", "value": 30 } }
     },
     "images": [
       { "src": "assets/meisterwerk-m3/mockup1.webp", "alt": "Framed Meisterwerk M3 print on wall" },

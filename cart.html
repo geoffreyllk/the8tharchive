@@ -42,9 +42,9 @@
     </noscript>
     
     <!-- Script -->
+    <script src="dist/script.min.js" defer></script>
     <script src="dist/detect-touch.min.js" defer></script>
     <script src="dist/cart.min.js" defer></script>
-    <script src="dist/script.min.js" defer></script>
 
     <style>
         @media (max-width: 440px) {
@@ -134,28 +134,7 @@
 <body class="grain flex flex-col">
     <a href="#main-content" class="sr-only focus:not-sr-only absolute flex justify-center bg-black text-white p-2 z-50">[ Skip to content ]</a>
 
-    <!-- Menu Button -->
-    <button id="menuBtn" class="fixed top-0 left-0 h-full w-9 bg-black bg-opacity-90 border-r border-gray-700 hover:border-white transition-all duration-500 ease-in-out z-50 group mono animate-fadeInRight opacity-0" style="animation-delay: 0.4s; animation-fill-mode: both;" 
-        aria-controls="sidebar" aria-expanded="false" aria-label="Open main menu" type="button">
-        <span style="text-shadow: 0 0 1px black, 0 0 1px black;"class="absolute left-0 top-1/2 transform -rotate-90 uppercase tracking-widest text-sm text-white hover:text-gray-300 transition-colors">
-            Menu
-        </span>
-    </button>
-    <!-- Sidebar Navbar --> 
-    <aside id="sidebar" class="fixed top-0 left-0 h-full w-0 bg-black bg-opacity-90 border-gray-700 md:hover:border-white overflow-hidden transition-all duration-500 ease-in-out z-50" role="navigation" aria-label="Site menu" inert>
-        <nav class="flex flex-col justify-center items-center text-center h-full px-6 space-y-6" aria-label="Main navigation">
-            <h2 class="sr-only">Main Site Navigation</h2>
-            <a href="index.html" class="nav-item block text-lg uppercase text-gray-400 hover:text-white transition-all opacity-0 -translate-x-5 mono" aria-current="page">Archive</a>
-            <a href="about.html" class="nav-item block text-lg uppercase text-gray-400 hover:text-white transition-all opacity-0 -translate-x-5 mono">About</a>
-            <!-- <a href="collections.html" class="nav-item block text-lg uppercase text-gray-400 hover:text-white transition-all opacity-0 -translate-x-5 mono">Collections</a> -->
-            <a href="cart.html" class="nav-item block text-lg uppercase text-gray-400 hover:text-white transition-all opacity-0 -translate-x-5 mono">Cart</a>
-        </nav>
-        <button id="closeBtn" class="absolute top-5 right-5 sm:top-6 sm:right-6 text-xl md:hidden opacity-0 pointer-events-none transition-opacity duration-300 text-gray-400 hover:text-white z-50 mono" aria-label="Close menu">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none">
-                <path d="M2 2L22 22M22 2L2 22" stroke="currentColor" stroke-width="1.2" stroke-linecap="butt"/>
-            </svg>
-        </button>
-    </aside>
+    <div id="header"></div>
 
     <main id="main-content" role="main" aria-label="Cart Content" class="max-w-4xl mx-auto pl-12 pr-3 sm:pr-12 text-gray-300 flex-grow min-h-screen">
         <header class="pb-2 border-b border-gray-700">
@@ -236,14 +215,6 @@
         </div>
     </main>
 
-    <!-- FOOTER -->
-    <footer role="contentinfo" aria-label="Footer navigation" class="text-center text-gray-600 text-xs py-12 mt-12 px-12 border-t border-gray-800 mono">
-        <p class="sr-only">Site footer with legal and contact links</p>
-        © The8thArchive — [Est. 2025] — All prints limited. All rights reserved. <br><br>
-        <a href="terms-of-service.html" class="underline-hover">Terms</a> &nbsp;|&nbsp;
-        <a href="privacy-policy.html" class="underline-hover">Privacy</a> &nbsp;|&nbsp;
-        <a href="promotions.html" class="underline-hover">Promotions</a> &nbsp;|&nbsp;
-        <a href="contact.html" class="underline-hover">Contact</a>
-    </footer>
+    <div id="footer"></div>
 </body>
 </html>
