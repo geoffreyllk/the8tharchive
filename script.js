@@ -1,9 +1,11 @@
-fetch("/partials/header.html")
-  .then(res => res.text())
-  .then(data => {
-    document.getElementById("header").innerHTML = data;
-    initNav();
-});
+if (document.getElementById("header")) {
+    fetch("/partials/header.html")
+    .then(res => res.text())
+    .then(data => {
+        document.getElementById("header").innerHTML = data;
+        initNav();
+    });
+}
 
 if (document.getElementById("cartNav")) {
     fetch("/partials/cartnav.html")
