@@ -18,7 +18,7 @@
 
 html {
   scroll-behavior: smooth;
-  filter: sepia(0.2) contrast(1.05) brightness(0.98);
+  filter: sepia(0.1) contrast(1.02) brightness(0.95);
 }
 
 body {
