@@ -40,6 +40,56 @@
         <link rel="stylesheet" href="/dist/main.min.css">
         <link rel="stylesheet" href="/dist/style.css">
     </noscript>
+
+    <style>
+        
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 1s ease-out forwards;
+            will-change: transform, opacity;
+        }
+
+        @keyframes fadeInOnly {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .animate-fadeInOnly {
+            animation: fadeInOnly 1s ease-out forwards;
+        }
+
+        .poster-img {
+            max-height: 78vh;
+            width: auto;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            object-fit: contain;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.03);
+            filter: brightness(1.03) contrast(1.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .poster-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.06);
+        }
+    </style>
     
     <!-- Script -->
     <script src="dist/script.min.js?v=3" defer></script>
@@ -54,11 +104,50 @@
         <header class="w-full pb-2 border-b border-gray-700">
             <h1 class="text-3xl md:text-4xl pt-12 text-center text-white font-bold uppercase title tracking-tight z-10">Collections</h1>
         </header>
+
+        <section class="mt-12 relative">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4">
+                <div class="flex justify-center w-full">
+                    <img src="/images/posters/poster-hanabi-rwb.webp" alt="Limited edition poster titled Hanabi RWB featuring RWB Hanabi" class="poster-img rounded-none border border-gray-700 shadow-md shadow-black/40 w-full" loading="lazy" decoding="async"/>
+                </div>
+                <div class="flex justify-center w-full">
+                    <img src="/images/posters/poster-yugata-rwb.webp" alt="Limited edition poster titled Yugata RWB featuring RWB Yugata" class="poster-img rounded-none border border-gray-700 shadow-md shadow-black/40 w-full" loading="lazy" decoding="async"/>
+                </div>
+                <div class="flex justify-center w-full">
+                    <img src="/images/posters/poster-miyabi-rwb.webp" alt="Limited edition poster titled Miyabi RWB featuring RWB Miyabi" class="poster-img rounded-none border border-gray-700 shadow-md shadow-black/40 w-full" loading="lazy" decoding="async"/>
+                </div>
+                <div class="flex justify-center w-full">
+                    <img src="/images/posters/poster-nocturnal-spirit-rx7.webp" class="poster-img rounded-none border border-gray-700 shadow-md shadow-black/40 w-full" loading="lazy" decoding="async"/>
+                </div>
+                <div class="flex justify-center w-full">
+                    <img src="/images/posters/poster-meisterwerk-m3.webp" class="poster-img rounded-none border border-gray-700 shadow-md shadow-black/40 w-full" loading="lazy" decoding="async"/>
+                </div>
+                <div class="flex justify-center w-full">
+                    <img src="/images/posters/poster-f488-unleashed.webp" class="poster-img rounded-none border border-gray-700 shadow-md shadow-black/40 w-full" loading="lazy" decoding="async"/>
+                </div>
+                <div class="flex justify-center w-full">
+                    <img src="/images/posters/poster-gt3-shadow.webp" class="poster-img rounded-none border border-gray-700 shadow-md shadow-black/40 w-full" loading="lazy" decoding="async"/>
+                </div>
+            </div>
+            
+            <!-- <div class="flex flex-row items-end mt-0 relative">
+                <span class="absolute bottom-0 left-0 right-0 border-b border-gray-700"></span>
+                <div class="ml-auto px-6 py-1.5 border-t border-r border-l border-gray-700 rounded-tl-lg rounded-tr-lg bg-[#0b0b0b] relative z-10">
+                    <h2 class="text-base md:text-xl text-white uppercase font-mono tracking-widest">Rough World</h2>
+                </div>
+            </div> -->
+        </section>
     
         <section class="mt-12 relative">
-            <h2 class="text-xl md:text-2xl text-white uppercase mono mb-4 tracking-widest border-b border-gray-700 pb-2">Free Wallpapers</h2>
+            <div class="flex flex-row items-end mb-2 sm:mb-4">
+                <span class="w-full border-b border-gray-700"></span>
+                <div class="py-2 px-6 border-t border-r border-l border-gray-700 whitespace-nowrap">
+                    <h2 class="text-sm sm:text-base text-white uppercase">Free Wallpapers</h2>
+                </div>
+                <span class="w-full border-b border-gray-700"></span>
+            </div>
 
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4">
                 <div class="relative group overflow-hidden border border-gray-800 shadow-lg">
                     <img src="/images/wallpapers/f488-unleashed-preview.jpg" alt="F488 Unleashed Wallpaper" class="w-full object-cover transition-transform duration-500 group-hover:scale-105" />
                     <div class="absolute inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -91,21 +180,5 @@
     </main>
 
     <div id="footer"></div>
-
-    <script>
-        // cart nav
-        const count = JSON.parse(localStorage.getItem("cart"))?.reduce((sum, item) => sum + item.quantity, 0) || 0;
-        document.getElementById("cartCount").textContent = count;
-        
-        //center hero
-        function setViewportHeight() {
-            const vh = window.innerHeight * 0.01;
-            document.documentElement.style.setProperty('--vh', `${vh}px`);
-        }
-        window.addEventListener('load', setViewportHeight);
-        window.addEventListener('resize', setViewportHeight);
-        window.addEventListener('orientationchange', setViewportHeight);
-        
-    </script>
 </body>
 </html>

@@ -119,17 +119,11 @@ const getStatusColor = status => ({
 }[status.toLowerCase()] || 'text-yellow-300');
 
 function renderPoster(p, i, total) {
-    const desktopImg = p.img.replace("images/", "images/desktop/");
-    const mobileImg = p.img.replace("images/", "images/mobile/");
-
     return `
         <article class="${i === total - 1 ? '' : 'border-b border-gray-800'} mx-4 pb-10 sm:pb-22 sm:mb-22 opacity-0 translate-y-4 transition-all duration-500 ease-in-out animate-fadeInUp delay-[${i * 75}ms]" aria-labelledby="poster-title-${i}">
             <div class="flex flex-col md:flex-row justify-between gap-2 sm:gap-8 md:gap-12 ml-7 mr-4 sm:mx-10 items-stretch scroll-offset">
                 <div class="flex justify-center w-full ${i % 2 ? 'md:order-2' : ''}">
-                    <picture>
-                        <source srcset="${mobileImg}" media="(max-width: 768px)" type="image/webp">
-                        <img src="${desktopImg}" alt="Limited edition poster titled '${p.title}' featuring ${p.car}" class="poster-img rounded-none border border-gray-700 shadow-md shadow-black/40" loading="lazy" decoding="async"/>
-                    </picture>
+                    <img src="${p.img}" alt="Limited edition poster titled '${p.title}' featuring ${p.car}" class="poster-img rounded-none border border-gray-700 shadow-md shadow-black/40" loading="lazy" decoding="async"/>
                 </div>
                 <div class="flex flex-col w-full space-y-6 justify-between text-gray-300 md:pl-0 ${i % 2 ? 'md:order-1' : ''}">
                     <div class="space-y-1 hidden sm:block">

@@ -7,7 +7,7 @@
     "status": "Active",
     "release": "July 2025",
     "order": 1,
-    "img": "images/poster-nocturnal-spirit-rx7.webp",
+    "img": "images/posters/poster-nocturnal-spirit-rx7.webp",
     "link": "./shop/nocturnal-spirit-rx7"
   },
   {
@@ -18,7 +18,7 @@
     "status": "Active",
     "release": "Sept 2025",
     "order": 2,
-    "img": "images/poster-f488-unleashed.webp",
+    "img": "images/posters/poster-f488-unleashed.webp",
     "link": "./shop/f488-unleashed"
   },
   {
@@ -29,7 +29,7 @@
     "status": "Active",
     "release": "Oct 2025",
     "order": 3,
-    "img": "images/poster-gt3-shadow.webp",
+    "img": "images/posters/poster-gt3-shadow.webp",
     "link": "./shop/gt3-shadow"
   },
   {
@@ -40,7 +40,7 @@
     "status": "Active",
     "release": "Oct 2025",
     "order": 4,
-    "img": "images/poster-yugata-rwb.webp",
+    "img": "images/posters/poster-yugata-rwb.webp",
     "link": "./shop/yugata-rwb"
   },
   {
@@ -51,7 +51,7 @@
     "status": "Active",
     "release": "Feb 2026",
     "order": 5,
-    "img": "images/poster-hanabi-rwb.webp",
+    "img": "images/posters/poster-hanabi-rwb.webp",
     "link": "./shop/hanabi-rwb"
   },
   {
@@ -62,7 +62,7 @@
     "status": "Active",
     "release": "Apr 2026",
     "order": 6,
-    "img": "images/poster-miyabi-rwb.webp",
+    "img": "images/posters/poster-miyabi-rwb.webp",
     "link": "./shop/miyabi-rwb"
   },
   {
@@ -73,7 +73,7 @@
     "status": "Active",
     "release": "Apr 2026",
     "order": 7,
-    "img": "images/poster-meisterwerk-m3.webp",
+    "img": "images/posters/poster-meisterwerk-m3.webp",
     "link": "./shop/meisterwerk-m3"
   }
 ]
