@@ -16,7 +16,7 @@
       { "src": "assets/nocturnal-spirit-rx7/mockup2.webp", "alt": "Close-up of unframed RE:Volution RX-7 print slightly rolled" },
       { "src": "assets/nocturnal-spirit-rx7/mockup3.webp", "alt": "Nocutnal Spirit RX-7 print laid flat with kraft tube beside it" }
     ],
-    "img": "images/poster-nocturnal-spirit-rx7.webp",
+    "img": "images/posters/poster-nocturnal-spirit-rx7.webp",
     "keywords": ["Mazda RX-7", "RX-7 FD3S", "Spirit R", "rotary", "13B twin-rotor", "JDM", "hyperlime", "limited edition poster", "automotive art", "car poster", "collector"]
   },
   "f488-unleashed": {
@@ -36,7 +36,7 @@
       { "src": "assets/f488-unleashed/mockup2.webp", "alt": "Close-up of unframed F488 Unleashed print slightly rolled" },
       { "src": "assets/f488-unleashed/mockup3.webp", "alt": "F488 Unleashed print laid flat with kraft tube beside it" }
     ],
-    "img": "images/poster-f488-unleashed.webp",
+    "img": "images/posters/poster-f488-unleashed.webp",
     "keywords": ["Ferrari 488 Pista", "Ferrari", "488 Pista", "supercar", "track car", "Italian sports car", "limited edition poster", "automotive art", "car poster"]
   },
   "gt3-shadow": {
@@ -56,7 +56,7 @@
       { "src": "assets/gt3-shadow/mockup2.webp", "alt": "Close-up of unframed Escape the Shadows print slightly rolled" },
       { "src": "assets/gt3-shadow/mockup3.webp", "alt": "Escape the Shadows print laid flat with kraft tube beside it" }
     ],
-    "img": "images/poster-gt3-shadow.webp",
+    "img": "images/posters/poster-gt3-shadow.webp",
     "keywords": ["Porsche 911", "992 GT3 Cup", "Porsche GT3", "track car", "racing poster", "motorsport", "limited edition poster", "automotive art", "car poster"]
   },
   "yugata-rwb": {
@@ -76,7 +76,7 @@
       { "src": "assets/yugata-rwb/mockup2.webp", "alt": "Close-up of unframed YUGATA /// 012 print slightly rolled" },
       { "src": "assets/yugata-rwb/mockup3.webp", "alt": "YUGATA /// 012 print laid flat with kraft tube beside it" }
     ],
-    "img": "images/poster-yugata-rwb.webp",
+    "img": "images/posters/poster-yugata-rwb.webp",
     "keywords": ["RWB", "Porsche 993", "Nakai-san", "widebody", "One Corsa", "Yugata", "RWB Malaysia", "limited edition poster", "automotive art", "car culture"]
   },
   "hanabi-rwb": {
@@ -96,7 +96,7 @@
       { "src": "assets/hanabi-rwb/mockup2.webp", "alt": "Close-up of unframed HANABI /// 009 print slightly rolled" },
       { "src": "assets/hanabi-rwb/mockup3.webp", "alt": "HANABI /// 009 print laid flat with kraft tube beside it" }
     ],
-    "img": "images/poster-hanabi-rwb.webp",
+    "img": "images/posters/poster-hanabi-rwb.webp",
     "keywords": ["RWB", "Porsche 993", "Nakai-san", "widebody", "Carfe", "Hanabi", "RWB Malaysia", "limited edition poster", "automotive art", "car culture"]
   },
   "miyabi-rwb": {
@@ -116,7 +116,7 @@
       { "src": "assets/miyabi-rwb/mockup2.webp", "alt": "Close-up of unframed Miyabi /// 005 print slightly rolled" },
       { "src": "assets/miyabi-rwb/mockup3.webp", "alt": "Miyabi /// 005 print laid flat with kraft tube beside it" }
     ],
-    "img": "images/poster-miyabi-rwb.webp",
+    "img": "images/posters/poster-miyabi-rwb.webp",
     "keywords": ["RWB", "Porsche 993", "Nakai-san", "widebody", "Carfe", "Miyabi", "RWB Malaysia", "limited edition poster", "automotive art", "car culture"]
   },
   "meisterwerk-m3": {
@@ -136,7 +136,7 @@
       { "src": "assets/meisterwerk-m3/mockup2.webp", "alt": "Close-up of unframed Meisterwerk M3 print slightly rolled" },
       { "src": "assets/meisterwerk-m3/mockup3.webp", "alt": "Meisterwerk M3 print laid flat with kraft tube beside it" }
     ],
-    "img": "images/poster-meisterwerk-m3.webp",
+    "img": "images/posters/poster-meisterwerk-m3.webp",
     "keywords": ["BMW E30 M3", "E30", "M3 DTM", "Group A", "classic BMW", "motorsport poster", "limited edition poster", "automotive art", "car poster"]
   }
 }

@@ -165,9 +165,6 @@ function renderCart() {
         const itemTotal    = unitPrice * item.quantity;
         const itemOriginal = unitOriginal * item.quantity;
 
-        const desktopImg = item.img.replace("images/", "images/desktop/");
-        const mobileImg  = item.img.replace("images/", "images/mobile/");
-
         total += itemTotal;
         count += item.quantity;
         saved += (itemOriginal - itemTotal);
@@ -181,10 +178,7 @@ function renderCart() {
         <div class="grid grid-cols-5 sm:grid-cols-11">
             <div class="col-start-1 col-end-4 sm:col-end-9 flex flex-col sm:flex-row">
                 <figure id="imageDiv-${uid}" class="shrink-0 w-auto sm:h-auto sm:w-1/2 border-l border-gray-700 p-2 overflow-hidden transition-all duration-700 ease-in-out">
-                    <picture>
-                        <source srcset="${mobileImg}" media="(max-width: 768px)" type="image/webp">
-                        <img src="${desktopImg}" alt="${item.title}" class="w-full object-cover" loading="lazy" decoding="async"/>
-                    </picture>
+                        <img src="${item.img}" alt="${item.title}" class="w-full object-cover" loading="lazy" decoding="async"/>
                 </figure>
 
                 <figcaption id="infoDiv-${uid}" class="flex justify-between w-full h-auto sm:w-1/2 border-l border-gray-700 sm:border-none p-2 pl-4 sm:p-4 transition-all duration-700 ease-in-out">
