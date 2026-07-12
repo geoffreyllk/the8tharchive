@@ -14,12 +14,12 @@ const promoSentinel = document.getElementById('promo-sentinel');
 const promoObserver = new IntersectionObserver(
     ([entry]) => {
         if (entry.isIntersecting) {
-            promoLink.classList.add('border-t', 'border-b', 'border-gray-700');
+            promoLink.classList.add('border-b', 'border-gray-700');
             promoLink.classList.remove('bg-black');
             promoLink.style.backgroundColor = '#0f0f0f';
 
         } else {
-            promoLink.classList.remove('border-t', 'border-b', 'border-gray-700');
+            promoLink.classList.remove('border-b', 'border-gray-700');
             promoLink.classList.add('bg-black');
             promoLink.style.backgroundColor = ''; 
         }
@@ -106,6 +106,7 @@ disableFilterFocus();
 let originalPosters = [];
 let currentSort = 'latest';
 let activeFilters = new Set(['active', 'sold out', 'coming soon', 'display only']);
+let showDetails = false;
 
 const sortButtons = document.querySelectorAll('.sort-btn');
 const filterButtons = document.querySelectorAll('.filter-btn');
@@ -119,8 +120,17 @@ const getStatusColor = status => ({
 }[status.toLowerCase()] || 'text-yellow-300');
 
 function renderPoster(p, i, total) {
+    if (!showDetails) {
+        return `
+            <a href="${p.link}" class="block w-full transition-transform duration-500 ease-in-out hover:scale-95">
+                <img src="${p.img}" alt="Limited edition poster titled '${p.title}' featuring ${p.car}" class="poster-img rounded-none border border-gray-700 shadow-md shadow-black/40 w-full" loading="lazy" decoding="async"/>
+            </a>
+        `;
+    }
+
+
     return `
-        <article class="${i === total - 1 ? '' : 'border-b border-gray-800'} mx-4 pb-10 sm:pb-22 sm:mb-22 opacity-0 translate-y-4 transition-all duration-500 ease-in-out animate-fadeInUp delay-[${i * 75}ms]" aria-labelledby="poster-title-${i}">
+        <article class="${i === total - 1 ? '' : 'border-b border-gray-800'} pb-10 sm:pb-22 sm:mb-22 opacity-0 translate-y-4 transition-all duration-500 ease-in-out animate-fadeInUp delay-[${i * 75}ms]" aria-labelledby="poster-title-${i}">
             <div class="flex flex-col md:flex-row justify-between gap-2 sm:gap-8 md:gap-12 ml-7 mr-4 sm:mx-10 items-stretch scroll-offset">
                 <div class="flex justify-center w-full ${i % 2 ? 'md:order-2' : ''}">
                     <img src="${p.img}" alt="Limited edition poster titled '${p.title}' featuring ${p.car}" class="poster-img rounded-none border border-gray-700 shadow-md shadow-black/40" loading="lazy" decoding="async"/>
@@ -168,13 +178,26 @@ function renderPoster(p, i, total) {
                 </div>
             </div>
         </article>
+
+
     `;
 }
 
 function renderPosters(posters) {
-    posterContainer.innerHTML = posters.length
-        ? posters.map((p, i) => renderPoster(p, i, posters.length)).join('')
-        : `<div class="text-center text-gray-500 italic py-16 text-sm mono">No posters match the current filter.</div>`;
+    if (posters.length === 0) {
+        posterContainer.innerHTML = `<div class="text-center text-gray-500 italic py-16 text-sm mono">No posters match the current filter.</div>`;
+        return;
+    }
+
+    if (!showDetails) {
+        posterContainer.innerHTML = `
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 justify-items-center w-full">
+                ${posters.map((p, i) => renderPoster(p, i, posters.length)).join('')}
+            </div>
+        `;
+    } else {
+        posterContainer.innerHTML = posters.map((p, i) => renderPoster(p, i, posters.length)).join('');
+    }
 }
 
 function applyFilters() {
@@ -271,6 +294,17 @@ filterButtons.forEach(btn => {
         applyFilters();
     });
 });
+
+const toggleViewBtn = document.getElementById('toggleViewBtn');
+if (toggleViewBtn) {
+    toggleViewBtn.addEventListener('click', () => {
+        showDetails = !showDetails;
+        toggleViewBtn.textContent = showDetails ? 'Detail View' : 'Grid View';
+        toggleViewBtn.classList.toggle('active');
+        toggleViewBtn.setAttribute('aria-pressed', showDetails.toString());
+        applyFilters();
+    });
+}
 
 // Load JSON
 fetch('posters.json')
