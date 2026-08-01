@@ -138,5 +138,45 @@
     ],
     "img": "images/posters/poster-meisterwerk-m3.webp",
     "keywords": ["BMW E30 M3", "E30", "M3 DTM", "Group A", "classic BMW", "motorsport poster", "limited edition poster", "automotive art", "car poster"]
+  },
+  "kagayaki-rwb": {
+    "title": "Kagayaki",
+    "car": "Porsche 997.1 Turbo Cabriolet (RWB)",
+    "description": "The first 997-generation RWB in Malaysia and only the second in Southeast Asia, Kagayaki is a rare piece of RWB history. It was also the 10th RWB built in Malaysia alongside its sibling, Hanabi (the 9th), during Nakai-san's six-car mega build week—his return after five long years. For us RWB fanatics, those two weeks felt like a reawakening, putting the Malaysian car scene back under the global spotlight.<br><br>Under the lights at Carfe, Kagayaki shows off its PTS Macadamia Metallic finish and Terracotta interior, grounded by a set of yellow Hyperion V2s. Notice how it keeps its stock 997 Turbo wing and features custom-built CSB pro headlights. It's these unique choices that keep the passion for car culture alive.",
+    "edition": 5,
+    "release": "May 2026",
+    "stock": 5,
+    "status": "active",
+    "price": {
+      "unframed": { "original": 99, "discount": { "type": "percent", "value": 30 } },
+      "framed": { "original": 199, "discount": { "type": "percent", "value": 30 } }
+    },
+    "images": [
+      { "src": "assets/kagayaki-rwb/mockup1.webp", "alt": "Framed Kagayaki RWB print on wall" },
+      { "src": "assets/kagayaki-rwb/mockup2.webp", "alt": "Close-up of unframed Kagayaki RWB print slightly rolled" },
+      { "src": "assets/kagayaki-rwb/mockup3.webp", "alt": "Kagayaki RWB print laid flat with kraft tube beside it" }
+    ],
+    "img": "images/posters/poster-kagayaki-rwb.webp",
+    "keywords": ["RWB", "Nakai-san", "Porsche 997 Turbo Cabriolet", "Kagayaki", "RWB Malaysia", "RWB Southeast Asia", "PTS Macadamia Metallic", "Terracotta interior", "Hyperion V2 wheels", "RWB 997", "Porsche 997.1", "RWB build week", "six-car build", "RWB fanatics", "Carfe", "Japanese tuning", "widebody Porsche", "RWB history", "collector Porsche", "RWB 10th Malaysia"]
+  },
+  "m491-turbo": {
+    "title": "M491 Turbo",
+    "car": "1989 Porsche 911 Targa 3.2 Supersport (M491)",
+    "description": "With fewer than a hundred M491 Targas ever built—and only a handful in right-hand drive—this seemingly 'normal' 911 ranks among the rarest factory 911s of its generation. Originally finished in Slate Grey Metallic, it was later wrapped to match the owner's red and black car collection.<br><br>Introduced in 1984, the M491 'Turbo Look' package brought the visual presence of the 930 Turbo to the naturally aspirated Carrera 3.2. Alongside the widened bodywork and iconic rear spoiler, Porsche upgraded the standard Carrera with better suspension, brakes, and wider Fuchs wheels from the Turbo. The highly regarded G50 transmission only arrived after 1987, making this 1989 M491 the ultimate holy grail.",
+    "edition": 5,
+    "release": "June 2026",
+    "stock": 5,
+    "status": "active",
+    "price": {
+      "unframed": { "original": 99, "discount": { "type": "percent", "value": 30 } },
+      "framed": { "original": 199, "discount": { "type": "percent", "value": 30 } }
+    },
+    "images": [
+      { "src": "assets/m491-turbo/mockup1.webp", "alt": "Framed M491 Turbo print on wall" },
+      { "src": "assets/m491-turbo/mockup2.webp", "alt": "Close-up of unframed M491 Turbo print slightly rolled" },
+      { "src": "assets/m491-turbo/mockup3.webp", "alt": "M491 Turbo print laid flat with kraft tube beside it" }
+    ],
+    "img": "images/posters/poster-m491-turbo.webp",
+    "keywords": ["Porsche 911 M491", "Turbo Look", "M491 Targa", "930 Turbo", "Porsche 911 Carrera 3.2", "G50 transmission", "Slate Grey Metallic", "RHD Porsche", "rare Porsche", "factory 911", "1989 Porsche 911", "M491 package", "Fuchs wheels", "Turbo spoiler", "Porsche collector", "holy grail 911", "M491 RHD", "widebody Porsche", "classic 911", "Porsche Targa", "ultimate 911", "Porsche 930", "M491 Supersport", "rare Porsche 911"]
   }
 }

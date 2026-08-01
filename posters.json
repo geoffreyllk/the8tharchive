@@ -82,5 +82,29 @@
     "img": "images/posters/poster-meisterwerk-m3.webp",
     "mockup": "shop/assets/meisterwerk-m3/mockup1.webp",
     "link": "./shop/meisterwerk-m3"
+  },
+  {
+    "title": "Kagayaki",
+    "car": "Porsche 997.1 Turbo Cabriolet (RWB)",
+    "edition": "1 of 5",
+    "collection": null,
+    "status": "Active",
+    "release": "May 2026",
+    "order": 8,
+    "img": "images/posters/poster-kagayaki-rwb.webp",
+    "mockup": "shop/assets/kagayaki-rwb/mockup1.webp",
+    "link": "./shop/kagayaki-rwb"
+  },
+  {
+    "title": "M491 Turbo",
+    "car": "1989 Porsche 911 Targa 3.2 Supersport (M491)",
+    "edition": "1 of 2",
+    "collection": null,
+    "status": "Active",
+    "release": "Jun 2026",
+    "order": 9,
+    "img": "images/posters/poster-m491-turbo.webp",
+    "mockup": "shop/assets/m491-turbo/mockup1.webp",
+    "link": "./shop/m491-turbo"
   }
 ]
